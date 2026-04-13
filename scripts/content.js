@@ -183,27 +183,32 @@ export const SITE_CONTENT = {
       },
       approach: {
         eyebrow: 'How I Work',
-        title: 'Delivery approach',
+        title: 'CIRCLES-aligned product execution',
         items: [
           {
-            title: 'Discovery and prioritization',
+            title: 'Clarify context and customer',
             detail:
-              'I frame roadmap decisions around user value, technical feasibility, and delivery risk.',
+              'Starts by defining the situation, target customer, and constraints before jumping to solutions.',
           },
           {
-            title: 'Technical depth in product decisions',
+            title: 'Translate insights into needs',
             detail:
-              'I use architecture-level understanding to identify trade-offs early and reduce execution risk.',
+              'Combines customer interviews, analytics, and market signals to identify the highest-value problems.',
           },
           {
-            title: 'Business-engineering translation',
+            title: 'Prioritize with explicit trade-offs',
             detail:
-              'I convert technical complexity into clear product choices for stakeholders and leadership.',
+              'Cuts through competing requests by ranking impact, feasibility, and strategic fit with transparent decisions.',
           },
           {
-            title: 'Target opportunity focus',
+            title: 'Shape options and execution',
             detail:
-              'Current focus: Product Manager Hardware, Product Manager SaaS, and Product Manager roles.',
+              'Frames solution paths with engineering and go-to-market teams, then aligns scope, sequencing, and delivery ownership.',
+          },
+          {
+            title: 'Close the loop with outcomes',
+            detail:
+              'Tracks inquiries, sold units, and market traction to refine strategy and strengthen roadmap quality.',
           },
         ],
       },
@@ -484,27 +489,32 @@ export const SITE_CONTENT = {
       },
       approach: {
         eyebrow: 'Come Lavoro',
-        title: 'Metodo di delivery',
+        title: 'Esecuzione prodotto allineata al framework CIRCLES',
         items: [
           {
-            title: 'Discovery e prioritizzazione',
+            title: 'Chiarezza su contesto e cliente',
             detail:
-              'Definisco roadmap e priorita bilanciando valore utente, fattibilita tecnica e rischio delivery.',
+              'Parte dalla definizione del contesto, del cliente target e dei vincoli prima di entrare nelle soluzioni.',
           },
           {
-            title: 'Profondita tecnica nelle decisioni',
+            title: 'Dagli insight ai bisogni',
             detail:
-              'Uso comprensione architetturale per individuare presto trade-off e ridurre rischio di esecuzione.',
+              'Unisce interviste cliente, analytics e segnali di mercato per identificare i problemi a maggior valore.',
           },
           {
-            title: 'Traduzione business-engineering',
+            title: 'Prioritizzazione con trade-off espliciti',
             detail:
-              'Trasformo complessita tecnica in scelte prodotto chiare per stakeholder e leadership.',
+              'Gestisce richieste concorrenti valutando impatto, fattibilita e coerenza strategica con decisioni trasparenti.',
           },
           {
-            title: 'Focus opportunita',
+            title: 'Opzioni di soluzione ed esecuzione',
             detail:
-              'Target attuale: Product Manager Hardware, Product Manager SaaS e Product Manager.',
+              'Definisce opzioni con engineering e go-to-market, allineando scope, sequenza e ownership della delivery.',
+          },
+          {
+            title: 'Misura risultati e apprendimento continuo',
+            detail:
+              'Monitora inquiry, unita vendute e trazione di mercato per affinare strategia e qualita della roadmap.',
           },
         ],
       },
