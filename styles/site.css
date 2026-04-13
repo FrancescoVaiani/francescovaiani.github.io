@@ -610,6 +610,11 @@
     display: block !important;
   }
 
+  /* Print focus: keep the top 4 hard skills, hide the lowest-priority 2. */
+  #skills .skill-panel:nth-of-type(3) {
+    display: none !important;
+  }
+
   .card,
   .skill-panel,
   .contact-item,

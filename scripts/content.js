@@ -220,20 +220,27 @@ export const SITE_CONTENT = {
       },
       skills: {
         eyebrow: 'Hard Skills',
-        title: 'Core capabilities',
+        title: 'Core capabilities for product roles',
         groups: [
           {
-            title: 'Product Leadership',
+            title: 'Product Strategy',
             items: [
-              { label: 'Product strategy and prioritization', value: 93 },
-              { label: 'Roadmap ownership and scope definition', value: 90 },
+              { label: 'Opportunity sizing and market analysis', value: 92 },
+              { label: 'Discovery and prioritization (CIRCLES-aligned)', value: 91 },
             ],
           },
           {
-            title: 'Execution',
+            title: 'Technical Product Differentiation',
             items: [
-              { label: 'Cross-functional stakeholder alignment', value: 91 },
-              { label: 'Technical fluency with engineering teams', value: 88 },
+              { label: 'Hardware product strategy and lifecycle planning', value: 93 },
+              { label: 'Full-stack to hardware product translation', value: 92 },
+            ],
+          },
+          {
+            title: 'Execution and Alignment',
+            items: [
+              { label: 'Cross-functional execution (R&D, Sales, Marketing)', value: 90 },
+              { label: 'International stakeholder coordination', value: 89 },
             ],
           },
         ],
@@ -529,17 +536,24 @@ export const SITE_CONTENT = {
         title: 'Competenze principali',
         groups: [
           {
-            title: 'Product Leadership',
+            title: 'Strategia di Prodotto',
             items: [
-              { label: 'Strategia prodotto e prioritizzazione', value: 93 },
-              { label: 'Ownership roadmap e definizione scope', value: 90 },
+              { label: 'Analisi di mercato e opportunity sizing', value: 92 },
+              { label: 'Discovery e prioritizzazione (allineate a CIRCLES)', value: 91 },
             ],
           },
           {
-            title: 'Execution',
+            title: 'Differenziazione Tecnica di Prodotto',
             items: [
-              { label: 'Allineamento stakeholder cross-funzionale', value: 91 },
-              { label: 'Fluency tecnica con i team engineering', value: 88 },
+              { label: 'Strategia hardware e pianificazione del lifecycle', value: 93 },
+              { label: 'Traduzione full-stack verso decisioni prodotto hardware', value: 92 },
+            ],
+          },
+          {
+            title: 'Esecuzione e Allineamento',
+            items: [
+              { label: 'Esecuzione cross-funzionale (R&D, Sales, Marketing)', value: 90 },
+              { label: 'Coordinamento stakeholder internazionali', value: 89 },
             ],
           },
         ],
