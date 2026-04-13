@@ -174,7 +174,7 @@ function renderToolsStrip(localeData) {
 }
 
 function renderPrintIntro(localeData) {
-  const aboutText = localeData.sections.profile.paragraphs[1] || localeData.hero.summary;
+  const aboutText = localeData.hero.summary || localeData.sections.profile.paragraphs[0] || '';
   sectionPrintIntro.innerHTML = `
     <div class="print-identity-head">
       <h2>${escapeHtml(localeData.hero.eyebrow)}</h2>
@@ -203,10 +203,11 @@ function renderProfile(localeData) {
 
 function renderExperience(localeData) {
   const data = localeData.sections.experience;
+  const noteMarkup = data.note ? `<p class="section-note">${escapeHtml(data.note)}</p>` : '';
   sectionExperience.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
-    <p class="section-note">${escapeHtml(data.note)}</p>
+    ${noteMarkup}
     <div class="timeline">
       ${data.items
         .map(
@@ -228,10 +229,11 @@ function renderExperience(localeData) {
 
 function renderEducation(localeData) {
   const data = localeData.sections.education;
+  const noteMarkup = data.note ? `<p class="section-note">${escapeHtml(data.note)}</p>` : '';
   sectionEducation.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
-    <p class="section-note">${escapeHtml(data.note)}</p>
+    ${noteMarkup}
     <div class="timeline timeline-education">
       ${data.items
         .map(

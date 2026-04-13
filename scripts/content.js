@@ -22,11 +22,11 @@ export const SITE_CONTENT = {
     nav: [
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profile' },
-      { id: 'experience', label: 'Experience' },
-      { id: 'education', label: 'Education' },
-      { id: 'product-work', label: 'Product Work' },
-      { id: 'approach', label: 'How I Work' },
       { id: 'skills', label: 'Hard Skills' },
+      { id: 'experience', label: 'Experience' },
+      { id: 'approach', label: 'How I Work' },
+      { id: 'product-work', label: 'Product Work' },
+      { id: 'education', label: 'Education' },
       { id: 'languages', label: 'Languages' },
       { id: 'contact', label: 'Contact' },
       { id: 'media', label: 'Media' },
@@ -54,16 +54,14 @@ export const SITE_CONTENT = {
         eyebrow: 'Profile Summary',
         title: 'Product-first leadership, built on technical depth',
         paragraphs: [
-          'Francesco Vaiani is a Technical Product Manager at SECO with a full-stack software background and direct responsibility for hardware product initiatives.',
-          'He leads a small group of Product Managers in Italy and coordinates international stakeholders to deliver hardware product strategy and execution across cross-functional teams.',
-          'His approach combines analytics, customer interviews, and competitive analysis to turn market signals into clear priorities, supporting growth in client inquiries, sold units, and expansion into new markets.',
+          'I am a Technical Product Manager at SECO with a full-stack software background and direct responsibility for hardware product initiatives.',
+          'I lead a small group of Product Managers in Italy and coordinate international stakeholders to deliver hardware product strategy and execution across cross-functional teams.',
+          'My approach combines analytics, customer interviews, and competitive analysis to turn market signals into clear priorities, supporting growth in client inquiries, sold units, and expansion into new markets.',
         ],
       },
       experience: {
         eyebrow: 'Job Experiences',
         title: 'Career path',
-        note:
-          'Timeline validated with direct user input. AIDILAB ended on May 1, 2021 with the merge into Hopenly and Ispirata.',
         items: [
           {
             title: 'Product Manager',
@@ -71,10 +69,10 @@ export const SITE_CONTENT = {
             city: 'Arezzo',
             date: 'April 2023 - Present',
             scope:
-              'Product scope for SaaS platform evolution, prioritization, and cross-functional execution.',
+              'I own product scope for SaaS platform evolution, prioritization, and cross-functional execution.',
             contributions: [
-              'Leads product framing and roadmap alignment across business and engineering teams.',
-              'Uses technical depth to improve trade-off quality, delivery sequencing, and communication.',
+              'I lead product framing and roadmap alignment across business and engineering teams.',
+              'I use technical depth to improve trade-off quality, delivery sequencing, and communication.',
             ],
           },
           {
@@ -82,10 +80,10 @@ export const SITE_CONTENT = {
             company: 'SECO Mind',
             city: 'Padova',
             date: 'June 2021 - April 2023',
-            scope: 'Full-stack engineering work across platform and product surfaces.',
+            scope: 'I worked on full-stack engineering across platform and product surfaces.',
             contributions: [
-              'Contributed to backend and frontend implementation quality in SaaS platform contexts.',
-              'Built technical experience now applied to product leadership and stakeholder alignment.',
+              'I contributed to backend and frontend implementation quality in SaaS platform contexts.',
+              'I built technical experience now applied to product leadership and stakeholder alignment.',
             ],
           },
           {
@@ -94,9 +92,9 @@ export const SITE_CONTENT = {
             city: 'Siena',
             date: 'May 2016 - May 1, 2021',
             scope:
-              'Engineering responsibilities until the AIDILAB merge with Hopenly and Ispirata.',
+              'I covered engineering responsibilities until the AIDILAB merge with Hopenly and Ispirata.',
             contributions: [
-              'Built the full-stack foundation that now supports product strategy and technical communication.',
+              'I built the full-stack foundation that now supports my product strategy and technical communication.',
             ],
           },
         ],
@@ -104,7 +102,6 @@ export const SITE_CONTENT = {
       education: {
         eyebrow: 'My Education',
         title: 'Education',
-        note: 'Education entry sourced from user-provided timeline details.',
         items: [
           {
             date: '2004 - 2010',
@@ -112,7 +109,7 @@ export const SITE_CONTENT = {
             city: 'Siena',
             degree: "Bachelor's Degree in Computer Theory and Science",
             description:
-              'Academic foundation in computer science theory, software fundamentals, and analytical problem solving.',
+              'I built my foundation in computer science theory, software fundamentals, and analytical problem solving.',
           },
         ],
       },
@@ -120,7 +117,7 @@ export const SITE_CONTENT = {
         eyebrow: 'Selected Product Work',
         title: 'Flagship SaaS projects',
         intro:
-          'Both projects below reflect direct architecture and implementation ownership before the transition to product management roles.',
+          'Both projects below reflect my direct architecture and implementation ownership before my transition to product management roles.',
         items: [
           {
             tag: 'SaaS #1 - IoT',
@@ -130,17 +127,17 @@ export const SITE_CONTENT = {
             users:
               'Teams running IoT-enabled products and operations that need centralized cloud visibility and control.',
             role:
-              'Main architect for the platform, including microservice backend design and frontend development.',
+              'I was the main architect for the platform, including microservice backend design and frontend development.',
             decisions: [
-              'Designed a microservice-based backend architecture.',
-              'Designed and implemented the frontend application surface.',
-              'Designed message-based communication on RabbitMQ.',
-              'Designed data structures on MongoDB for the cloud domain model.',
+              'I designed a microservice-based backend architecture.',
+              'I designed and implemented the frontend application surface.',
+              'I designed message-based communication on RabbitMQ.',
+              'I designed data structures on MongoDB for the cloud domain model.',
             ],
             impact:
-              'Delivered the core cloud foundation used to manage and operate connected UDOO workflows.',
+              'I delivered the core cloud foundation used to manage and operate connected UDOO workflows.',
             futureFit:
-              'Demonstrates ability to bridge product direction and hands-on system design in SaaS + hardware contexts.',
+              'This demonstrates my ability to bridge product direction and hands-on system design in SaaS + hardware contexts.',
             references: [
               {
                 label: 'UDOO IoT documentation',
@@ -156,18 +153,18 @@ export const SITE_CONTENT = {
             users:
               'Product and operations teams responsible for connected-device lifecycle management at scale.',
             role:
-              'Main architect for the original Edgehog IoT implementation, with backend architecture and frontend ownership.',
+              'I was the main architect for the original Edgehog IoT implementation, with backend architecture and frontend ownership.',
             decisions: [
-              'Designed a microservice backend and built the frontend layer.',
-              'Designed messaging on MQTT using Mosquitto.',
-              'Designed a hybrid persistence model: SQL for structured device data and MongoDB for telemetry.',
-              'Integrated the platform with AWS IoT Cloud.',
-              'Later Astarte-based rewrite is treated as a separate implementation; contribution there focused on the edge agent.',
+              'I designed a microservice backend and built the frontend layer.',
+              'I designed messaging on MQTT using Mosquitto.',
+              'I designed a hybrid persistence model: SQL for structured device data and MongoDB for telemetry.',
+              'I integrated the platform with AWS IoT Cloud.',
+              'The later Astarte-based rewrite is treated as a separate implementation; my contribution there focused on the edge agent.',
             ],
             impact:
-              'Established the original product architecture used for device management workflows and cloud integration.',
+              'I established the original product architecture used for device management workflows and cloud integration.',
             futureFit:
-              'Shows system-level product thinking across backend architecture, data strategy, and cloud-device integration.',
+              'This shows my system-level product thinking across backend architecture, data strategy, and cloud-device integration.',
             references: [
               {
                 label: 'Edgehog website',
@@ -188,27 +185,27 @@ export const SITE_CONTENT = {
           {
             title: 'Clarify context and customer',
             detail:
-              'Starts by defining the situation, target customer, and constraints before jumping to solutions.',
+              'I start by defining the situation, target customer, and constraints before jumping to solutions.',
           },
           {
             title: 'Translate insights into needs',
             detail:
-              'Combines customer interviews, analytics, and market signals to identify the highest-value problems.',
+              'I combine customer interviews, analytics, and market signals to identify the highest-value problems.',
           },
           {
             title: 'Prioritize with explicit trade-offs',
             detail:
-              'Cuts through competing requests by ranking impact, feasibility, and strategic fit with transparent decisions.',
+              'I cut through competing requests by ranking impact, feasibility, and strategic fit with transparent decisions.',
           },
           {
             title: 'Shape options and execution',
             detail:
-              'Frames solution paths with engineering and go-to-market teams, then aligns scope, sequencing, and delivery ownership.',
+              'I frame solution paths with engineering and go-to-market teams, then align scope, sequencing, and delivery ownership.',
           },
           {
             title: 'Close the loop with outcomes',
             detail:
-              'Tracks inquiries, sold units, and market traction to refine strategy and strengthen roadmap quality.',
+              'I track inquiries, sold units, and market traction to refine strategy and strengthen roadmap quality.',
           },
         ],
       },
@@ -335,11 +332,11 @@ export const SITE_CONTENT = {
     nav: [
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profilo' },
-      { id: 'experience', label: 'Esperienza' },
-      { id: 'education', label: 'Formazione' },
-      { id: 'product-work', label: 'Progetti' },
-      { id: 'approach', label: 'Come lavoro' },
       { id: 'skills', label: 'Hard Skills' },
+      { id: 'experience', label: 'Esperienza' },
+      { id: 'approach', label: 'Come lavoro' },
+      { id: 'product-work', label: 'Progetti' },
+      { id: 'education', label: 'Formazione' },
       { id: 'languages', label: 'Lingue' },
       { id: 'contact', label: 'Contatti' },
       { id: 'media', label: 'Media' },
@@ -367,16 +364,14 @@ export const SITE_CONTENT = {
         eyebrow: 'Sintesi Profilo',
         title: 'Leadership product-first, con forte base tecnica',
         paragraphs: [
-          'Francesco Vaiani e Technical Product Manager in SECO, con background full-stack software e responsabilita diretta su iniziative di prodotto hardware.',
-          'Guida un piccolo gruppo di Product Manager in Italia e coordina stakeholder internazionali per portare a risultato strategia ed esecuzione di prodotto hardware in team cross-funzionali.',
-          'Il suo approccio unisce analytics, interviste clienti e analisi competitiva per trasformare segnali di mercato in priorita chiare, con impatto su inquiry dei clienti, unita vendute ed espansione in nuovi mercati.',
+          'Sono Technical Product Manager in SECO, con background full-stack software e responsabilita diretta su iniziative di prodotto hardware.',
+          'Guido un piccolo gruppo di Product Manager in Italia e coordino stakeholder internazionali per portare a risultato strategia ed esecuzione di prodotto hardware in team cross-funzionali.',
+          'Il mio approccio unisce analytics, interviste clienti e analisi competitiva per trasformare segnali di mercato in priorita chiare, con impatto su inquiry dei clienti, unita vendute ed espansione in nuovi mercati.',
         ],
       },
       experience: {
         eyebrow: 'Esperienze',
         title: 'Percorso professionale',
-        note:
-          'Timeline validata con input diretto. AIDILAB si conclude il 1 maggio 2021 con la merge in Hopenly e Ispirata.',
         items: [
           {
             title: 'Product Manager',
@@ -384,10 +379,10 @@ export const SITE_CONTENT = {
             city: 'Arezzo',
             date: 'aprile 2023 - oggi',
             scope:
-              'Responsabilita di prodotto su evoluzione piattaforma SaaS, prioritizzazione ed esecuzione cross-funzionale.',
+              'Ho responsabilita di prodotto su evoluzione piattaforma SaaS, prioritizzazione ed esecuzione cross-funzionale.',
             contributions: [
-              'Guida il framing di prodotto e l allineamento roadmap tra business e engineering.',
-              'Usa profondita tecnica per migliorare qualita dei trade-off e affidabilita della delivery.',
+              'Guido il framing di prodotto e l allineamento roadmap tra business e engineering.',
+              'Uso profondita tecnica per migliorare qualita dei trade-off e affidabilita della delivery.',
             ],
           },
           {
@@ -395,10 +390,10 @@ export const SITE_CONTENT = {
             company: 'SECO Mind',
             city: 'Padova',
             date: 'giugno 2021 - aprile 2023',
-            scope: 'Contributo full-stack su piattaforme e funzionalita di prodotto.',
+            scope: 'Ho lavorato come full-stack engineer su piattaforme e funzionalita di prodotto.',
             contributions: [
-              'Contributo a backend e frontend in contesti SaaS.',
-              'Base tecnica oggi applicata a leadership di prodotto e allineamento stakeholder.',
+              'Ho contribuito a backend e frontend in contesti SaaS.',
+              'Ho costruito la base tecnica che oggi applico a leadership di prodotto e allineamento stakeholder.',
             ],
           },
           {
@@ -407,9 +402,9 @@ export const SITE_CONTENT = {
             city: 'Siena',
             date: 'maggio 2016 - 1 maggio 2021',
             scope:
-              'Responsabilita ingegneristiche fino alla merge di AIDILAB con Hopenly e Ispirata.',
+              'Ho gestito responsabilita ingegneristiche fino alla merge di AIDILAB con Hopenly e Ispirata.',
             contributions: [
-              'Costruzione della base full-stack ora usata per strategia prodotto e comunicazione tecnica.',
+              'Ho costruito la base full-stack che ora uso per strategia prodotto e comunicazione tecnica.',
             ],
           },
         ],
@@ -417,7 +412,6 @@ export const SITE_CONTENT = {
       education: {
         eyebrow: 'Formazione',
         title: 'My Education',
-        note: 'Voce formazione ricavata dalle informazioni fornite direttamente.',
         items: [
           {
             date: '2004 - 2010',
@@ -425,7 +419,7 @@ export const SITE_CONTENT = {
             city: 'Siena',
             degree: 'Laurea in Informatica Teorica e Scienze Computazionali',
             description:
-              'Base accademica in teoria informatica, fondamenti software e approccio analitico al problem solving.',
+              'Ho costruito una base accademica in teoria informatica, fondamenti software e approccio analitico al problem solving.',
           },
         ],
       },
@@ -433,7 +427,7 @@ export const SITE_CONTENT = {
         eyebrow: 'Progetti Prodotto Selezionati',
         title: 'Progetti SaaS principali',
         intro:
-          'Entrambi i progetti riflettono ownership diretta su architettura e implementazione prima della transizione verso ruoli product.',
+          'Entrambi i progetti riflettono la mia ownership diretta su architettura e implementazione prima della transizione verso ruoli product.',
         items: [
           {
             tag: 'SaaS #1 - IoT',
@@ -443,17 +437,17 @@ export const SITE_CONTENT = {
             users:
               'Team che gestiscono prodotti IoT e operations con necessita di controllo e visibilita centralizzati.',
             role:
-              'Main architect della piattaforma con design backend a microservizi e sviluppo frontend.',
+              'Sono stato main architect della piattaforma con design backend a microservizi e sviluppo frontend.',
             decisions: [
-              'Design di un architettura backend basata su microservizi.',
-              'Design e sviluppo del frontend applicativo.',
-              'Design del sistema di messaggistica su RabbitMQ.',
-              'Design del modello dati su MongoDB.',
+              'Ho progettato un architettura backend basata su microservizi.',
+              'Ho progettato e sviluppato il frontend applicativo.',
+              'Ho progettato il sistema di messaggistica su RabbitMQ.',
+              'Ho progettato il modello dati su MongoDB.',
             ],
             impact:
-              'Realizzazione della base cloud per la gestione operativa dei flussi UDOO connessi.',
+              'Ho realizzato la base cloud per la gestione operativa dei flussi UDOO connessi.',
             futureFit:
-              'Evidenzia capacita di collegare direzione prodotto e system design operativo in contesti SaaS + hardware.',
+              'Questo evidenzia la mia capacita di collegare direzione prodotto e system design operativo in contesti SaaS + hardware.',
             references: [
               {
                 label: 'Documentazione UDOO IoT',
@@ -469,18 +463,18 @@ export const SITE_CONTENT = {
             users:
               'Team prodotto e operations responsabili del ciclo di vita dei dispositivi connessi.',
             role:
-              'Main architect dell implementazione Edgehog IoT originale, con ownership su backend e frontend.',
+              'Sono stato main architect dell implementazione Edgehog IoT originale, con ownership su backend e frontend.',
             decisions: [
-              'Design di backend a microservizi e sviluppo frontend.',
-              'Design della messaggistica MQTT con Mosquitto.',
-              'Design persistenza ibrida: SQL per dati strutturati device e MongoDB per telemetria.',
-              'Integrazione con AWS IoT Cloud.',
-              'La successiva riscrittura Astarte-based e trattata come implementazione separata; contributo principale su quella fase: edge agent.',
+              'Ho progettato backend a microservizi e sviluppato il frontend.',
+              'Ho progettato la messaggistica MQTT con Mosquitto.',
+              'Ho progettato una persistenza ibrida: SQL per dati strutturati device e MongoDB per telemetria.',
+              'Ho integrato la piattaforma con AWS IoT Cloud.',
+              'La successiva riscrittura Astarte-based e trattata come implementazione separata; in quella fase il mio contributo principale e stato sull edge agent.',
             ],
             impact:
-              'Definizione della prima architettura prodotto per workflow di device management e integrazione cloud.',
+              'Ho definito la prima architettura prodotto per workflow di device management e integrazione cloud.',
             futureFit:
-              'Dimostra product thinking a livello sistema su backend, strategia dati e integrazione cloud-device.',
+              'Questo dimostra il mio product thinking a livello sistema su backend, strategia dati e integrazione cloud-device.',
             references: [
               {
                 label: 'Sito Edgehog',
@@ -501,27 +495,27 @@ export const SITE_CONTENT = {
           {
             title: 'Chiarezza su contesto e cliente',
             detail:
-              'Parte dalla definizione del contesto, del cliente target e dei vincoli prima di entrare nelle soluzioni.',
+              'Parto dalla definizione del contesto, del cliente target e dei vincoli prima di entrare nelle soluzioni.',
           },
           {
             title: 'Dagli insight ai bisogni',
             detail:
-              'Unisce interviste cliente, analytics e segnali di mercato per identificare i problemi a maggior valore.',
+              'Unisco interviste cliente, analytics e segnali di mercato per identificare i problemi a maggior valore.',
           },
           {
             title: 'Prioritizzazione con trade-off espliciti',
             detail:
-              'Gestisce richieste concorrenti valutando impatto, fattibilita e coerenza strategica con decisioni trasparenti.',
+              'Gestisco richieste concorrenti valutando impatto, fattibilita e coerenza strategica con decisioni trasparenti.',
           },
           {
             title: 'Opzioni di soluzione ed esecuzione',
             detail:
-              'Definisce opzioni con engineering e go-to-market, allineando scope, sequenza e ownership della delivery.',
+              'Definisco opzioni con engineering e go-to-market, allineando scope, sequenza e ownership della delivery.',
           },
           {
             title: 'Misura risultati e apprendimento continuo',
             detail:
-              'Monitora inquiry, unita vendute e trazione di mercato per affinare strategia e qualita della roadmap.',
+              'Monitoro inquiry, unita vendute e trazione di mercato per affinare strategia e qualita della roadmap.',
           },
         ],
       },
