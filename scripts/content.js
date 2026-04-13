@@ -52,11 +52,11 @@ export const SITE_CONTENT = {
     sections: {
       profile: {
         eyebrow: 'Profile Summary',
-        title: 'Product-first identity, built on full-stack depth',
+        title: 'Product-first leadership, built on technical depth',
         paragraphs: [
-          'Current role: Product Manager at SECO. Previous roles: Senior Software Developer at SECO Mind and Software Developer at AIDILAB.',
-          'I focus on SaaS products in IoT and device management, connecting business strategy with architecture and delivery.',
-          'I am currently targeting Product Manager Hardware, Product Manager SaaS, and Product Manager roles.',
+          'Francesco Vaiani is a Technical Product Manager at SECO with a full-stack software background and direct responsibility for hardware product initiatives.',
+          'He leads a small group of Product Managers in Italy and coordinates international stakeholders to deliver hardware product strategy and execution across cross-functional teams.',
+          'His approach combines analytics, customer interviews, and competitive analysis to turn market signals into clear priorities, supporting growth in client inquiries, sold units, and expansion into new markets.',
         ],
       },
       experience: {
@@ -353,11 +353,11 @@ export const SITE_CONTENT = {
     sections: {
       profile: {
         eyebrow: 'Sintesi Profilo',
-        title: 'Identita product-first, costruita su basi full-stack',
+        title: 'Leadership product-first, con forte base tecnica',
         paragraphs: [
-          'Ruolo attuale: Product Manager in SECO. Ruoli precedenti: Senior Software Developer in SECO Mind e Software Developer in AIDILAB.',
-          'Mi concentro su prodotti SaaS in ambito IoT e device management, collegando strategia di business, architettura ed esecuzione.',
-          'Ruoli target: Product Manager Hardware, Product Manager SaaS e Product Manager.',
+          'Francesco Vaiani e Technical Product Manager in SECO, con background full-stack software e responsabilita diretta su iniziative di prodotto hardware.',
+          'Guida un piccolo gruppo di Product Manager in Italia e coordina stakeholder internazionali per portare a risultato strategia ed esecuzione di prodotto hardware in team cross-funzionali.',
+          'Il suo approccio unisce analytics, interviste clienti e analisi competitiva per trasformare segnali di mercato in priorita chiare, con impatto su inquiry dei clienti, unita vendute ed espansione in nuovi mercati.',
         ],
       },
       experience: {
