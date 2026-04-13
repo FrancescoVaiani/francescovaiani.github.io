@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal Deck - Design System Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <section id="hero" class="hero-impact is-visible" data-reveal>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Francesco Vaiani</p>
+          <h1>Product Manager with Full-Stack DNA</h1>
+          <p>
+            Building SaaS products in IoT and device management by bridging product strategy,
+            technical architecture and execution quality.
+          </p>
+          <div class="hero-kpis">
+            <span>PM first</span>
+            <span>~10y engineering base</span>
+            <span>SaaS + IoT + device management</span>
+          </div>
+          <div class="cta-row chrome-only">
+            <button class="btn btn-primary" type="button">Contact</button>
+            <button class="btn btn-ghost" type="button">LinkedIn</button>
+            <button class="btn btn-ghost" type="button">Print/PDF CV</button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-geometry" aria-hidden="true">
+            <div class="hero-accent-bar"></div>
+          </div>
+          <img
+            class="hero-portrait"
+            src="./assets/propic_scontornata.png"
+            alt="Francesco Vaiani portrait"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="shell">
+        <aside class="rail chrome-only">
+          <h1>Signal Deck</h1>
+          <p>Index starts after hero</p>
+          <nav class="nav-list">
+            <a class="nav-item active" href="#hero">Hero</a>
+            <a class="nav-item" href="#palette">Palette</a>
+            <a class="nav-item" href="#type">Typography</a>
+            <a class="nav-item" href="#timeline">Timeline</a>
+            <a class="nav-item" href="#cases">Case Studies</a>
+            <a class="nav-item" href="#media">Media</a>
+            <a class="nav-item" href="#skills">Skills</a>
+            <a class="nav-item" href="#print-preview">Print Concept</a>
+          </nav>
+          <div class="lang-switch" aria-label="Language switch mock">
+            <button class="active" type="button">EN</button>
+            <button type="button">IT</button>
+          </div>
+          <div class="theme-switch chrome-only" aria-label="Theme switch">
+            <button class="theme-btn" data-theme-set="light" type="button">Light</button>
+            <button class="theme-btn" data-theme-set="dark" type="button">Dark</button>
+            <button class="theme-btn active" data-theme-set="auto" type="button">Auto</button>
+          </div>
+        </aside>
+
+        <main class="content">
+          <section id="palette" class="panel" data-reveal>
+            <p class="eyebrow">Foundations</p>
+            <h2>Color Palette</h2>
+            <div class="swatch-grid">
+              <article class="swatch">
+                <div class="chip" style="background:#111827"></div>
+                <p>Neutral 900<br />#111827</p>
+              </article>
+              <article class="swatch">
+                <div class="chip" style="background:#2F3747"></div>
+                <p>Neutral 700<br />#2F3747</p>
+              </article>
+              <article class="swatch">
+                <div class="chip" style="background:#D3DAE4"></div>
+                <p>Neutral 200<br />#D3DAE4</p>
+              </article>
+              <article class="swatch">
+                <div class="chip" style="background:#0098F0"></div>
+                <p>Accent 500<br />#0098F0</p>
+              </article>
+              <article class="swatch">
+                <div class="chip" style="background:#0079C2"></div>
+                <p>Accent 600<br />#0079C2</p>
+              </article>
+              <article class="swatch">
+                <div class="chip" style="background:#FCFDFE"></div>
+                <p>Canvas<br />#FCFDFE</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="type" class="panel" data-reveal>
+            <p class="eyebrow">Foundations</p>
+            <h2>Typography Scale</h2>
+            <div class="type-grid">
+              <div class="type-row">
+                <p class="display">Sora Display / 56</p>
+              </div>
+              <div class="type-row">
+                <p style="margin:0;font-family:var(--font-heading);font-size:var(--fs-h1);font-weight:700;color:var(--color-text-strong)">
+                  Heading 1 / 44
+                </p>
+              </div>
+              <div class="type-row">
+                <p style="margin:0;font-size:var(--fs-body-lg)">
+                  Body Large / 18 - Built for fast recruiter scanning with enough nuance for deep
+                  product storytelling.
+                </p>
+              </div>
+              <div class="type-row">
+                <p style="margin:0;font-family:var(--font-mono);font-size:var(--fs-caption)">
+                  JetBrains Mono Caption / 14
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="timeline" class="panel" data-reveal>
+            <p class="eyebrow">Experience Pattern</p>
+            <h2>Timeline Item</h2>
+            <div class="timeline">
+              <article class="timeline-item">
+                <h3>Product Manager - SECO</h3>
+                <p class="meta">Apr 2023 - Present</p>
+                <p>
+                  Scope: SaaS product evolution, roadmap and cross-functional delivery between
+                  product, engineering and communication.
+                </p>
+              </article>
+              <article class="timeline-item">
+                <h3>Senior Software Developer - SECO Mind</h3>
+                <p class="meta">Jun 2021 - Apr 2023</p>
+                <p>
+                  Scope: Full-stack engineering and platform execution that now strengthens product
+                  decision quality.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="cases" class="panel" data-reveal>
+            <p class="eyebrow">Flagship Product Work</p>
+            <h2>Case Study Cards</h2>
+            <div class="cards">
+              <article class="card">
+                <span class="tag">SaaS #1 - IoT</span>
+                <h3>Problem-to-Outcome narrative</h3>
+                <p>
+                  Structured for decision scope clarity: problem, users, product choices, technical
+                  constraints and impact.
+                </p>
+              </article>
+              <article class="card">
+                <span class="tag">SaaS #2 - Device Management</span>
+                <h3>Bridge business and architecture</h3>
+                <p>
+                  Shows why technical fluency improves prioritization, delivery confidence and
+                  stakeholder communication.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="media" class="panel" data-reveal>
+            <p class="eyebrow">Media</p>
+            <h2>Video Card Pattern</h2>
+            <div class="media-grid">
+              <article class="media-card">
+                <div class="media-thumb"></div>
+                <div class="media-body">
+                  <h3>Explaining device lifecycle</h3>
+                  <p>Short domain explainer video with clear product communication angle.</p>
+                </div>
+              </article>
+              <article class="media-card">
+                <div class="media-thumb"></div>
+                <div class="media-body">
+                  <h3>Fleet orchestration overview</h3>
+                  <p>Demo-style narrative focused on user value and operational outcomes.</p>
+                </div>
+              </article>
+              <article class="media-card">
+                <div class="media-thumb"></div>
+                <div class="media-body">
+                  <h3>OTA updates in practice</h3>
+                  <p>Communication artifact highlighting clarity on complex technical topics.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="skills" class="panel" data-reveal>
+            <p class="eyebrow">Skills / Confidence</p>
+            <h2>Skill bars with confidence percentages</h2>
+            <div class="skills-panels">
+              <article class="skill-panel">
+                <h3>Product</h3>
+                <div class="skill-meter" style="--value:92%">
+                  <div class="skill-head"><span>Discovery & prioritization</span><strong>92%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+                <div class="skill-meter" style="--value:88%">
+                  <div class="skill-head"><span>Roadmapping</span><strong>88%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+              </article>
+              <article class="skill-panel">
+                <h3>Engineering</h3>
+                <div class="skill-meter" style="--value:84%">
+                  <div class="skill-head"><span>System design fluency</span><strong>84%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+                <div class="skill-meter" style="--value:81%">
+                  <div class="skill-head"><span>Delivery with engineering teams</span><strong>81%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+              </article>
+              <article class="skill-panel">
+                <h3>Domain</h3>
+                <div class="skill-meter" style="--value:90%">
+                  <div class="skill-head"><span>SaaS product workflows</span><strong>90%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+                <div class="skill-meter" style="--value:87%">
+                  <div class="skill-head"><span>IoT and device management</span><strong>87%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+              </article>
+              <article class="skill-panel">
+                <h3>Communication</h3>
+                <div class="skill-meter" style="--value:89%">
+                  <div class="skill-head"><span>Cross-functional alignment</span><strong>89%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+                <div class="skill-meter" style="--value:85%">
+                  <div class="skill-head"><span>Technical storytelling</span><strong>85%</strong></div>
+                  <div class="skill-track"><span class="skill-fill"></span></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="print-preview" class="panel chrome-only" data-reveal>
+            <p class="eyebrow">Print Concept Preview</p>
+            <h2>Draft direction for CV print layout</h2>
+            <p class="print-lead">
+              This is a visual concept only, inspired by the editorial balance of your reference.
+              It is not yet wired to the final @media print implementation.
+            </p>
+            <div class="print-stage">
+              <article class="print-sheet" aria-label="Print CV concept sheet">
+                <aside class="print-side">
+                  <div class="print-name-block">
+                    <h3>FRANCESCO<br />VAIANI</h3>
+                    <p>PRODUCT MANAGER</p>
+                  </div>
+                  <div class="print-photo">
+                    <img src="./assets/propic_scontornata.png" alt="Francesco Vaiani portrait" />
+                  </div>
+                  <div class="print-contact">
+                    <p>francesco@email.com</p>
+                    <p>linkedin.com/in/francesco</p>
+                    <p>Bologna, Italy</p>
+                  </div>
+                  <div class="print-skills">
+                    <h4>HARD SKILLS</h4>
+                    <div class="print-skill" style="--value:90%"><span>Product Strategy</span><i></i></div>
+                    <div class="print-skill" style="--value:86%"><span>SaaS Platforms</span><i></i></div>
+                    <div class="print-skill" style="--value:84%"><span>Technical Leadership</span><i></i></div>
+                    <div class="print-skill" style="--value:82%"><span>Storytelling</span><i></i></div>
+                  </div>
+                </aside>
+                <div class="print-main">
+                  <section>
+                    <h4>JOB EXPERIENCES</h4>
+                    <div class="print-row">
+                      <time>2023 - now</time>
+                      <div>
+                        <strong>Product Manager - SECO</strong>
+                        <p>Roadmap, prioritization and cross-functional SaaS delivery.</p>
+                      </div>
+                    </div>
+                    <div class="print-row">
+                      <time>2021 - 2023</time>
+                      <div>
+                        <strong>Senior Software Developer - SECO Mind</strong>
+                        <p>Full-stack implementation across platform and product initiatives.</p>
+                      </div>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>SELECTED PRODUCT WORK</h4>
+                    <div class="print-row">
+                      <time>Case 01</time>
+                      <div>
+                        <strong>IoT SaaS product</strong>
+                        <p>Problem framing, stakeholder alignment, decision scope and outcomes.</p>
+                      </div>
+                    </div>
+                    <div class="print-row">
+                      <time>Case 02</time>
+                      <div>
+                        <strong>Device management platform</strong>
+                        <p>Bridge between strategy, architecture constraints and execution.</p>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const themeButtons = document.querySelectorAll(".theme-btn");
+      const validThemes = new Set(["light", "dark", "auto"]);
+      const savedTheme = localStorage.getItem("signaldeck.theme");
+
+      const applyTheme = (theme) => {
+        if (theme === "auto") {
+          root.removeAttribute("data-theme");
+        } else {
+          root.setAttribute("data-theme", theme);
+        }
+        themeButtons.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.themeSet === theme);
+        });
+      };
+
+      const initialTheme = validThemes.has(savedTheme) ? savedTheme : "auto";
+      applyTheme(initialTheme);
+
+      themeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const theme = btn.dataset.themeSet;
+          applyTheme(theme);
+          localStorage.setItem("signaldeck.theme", theme);
+        });
+      });
+
+      const revealElements = document.querySelectorAll("[data-reveal]");
+      const navItems = document.querySelectorAll(".nav-item");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              navItems.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+              });
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      revealElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
