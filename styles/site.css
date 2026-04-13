@@ -317,7 +317,7 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 10pt 11pt !important;
+    padding: 8pt 9pt !important;
     background: #fff !important;
     break-inside: avoid;
     page-break-inside: avoid;
@@ -327,40 +327,34 @@
     grid-column: 1;
     grid-row: 1;
     border-right: 1px solid #d5d9df;
-    border-bottom: 1px solid #d5d9df;
     padding: 0 !important;
   }
 
   #experience {
     grid-column: 2;
     grid-row: 1;
-    border-bottom: 1px solid #d5d9df;
   }
 
   #contact {
     grid-column: 1;
     grid-row: 2;
     border-right: 1px solid #d5d9df;
-    border-bottom: 1px solid #d5d9df;
   }
 
   #education {
     grid-column: 2;
     grid-row: 2;
-    border-bottom: 1px solid #d5d9df;
   }
 
   #skills {
     grid-column: 1;
     grid-row: 3;
     border-right: 1px solid #d5d9df;
-    border-bottom: 1px solid #d5d9df;
   }
 
   #approach {
     grid-column: 2;
     grid-row: 3;
-    border-bottom: 1px solid #d5d9df;
   }
 
   #languages {
@@ -437,18 +431,26 @@
     filter: grayscale(1) contrast(1.05);
   }
 
-  .eyebrow {
+  .panel > .eyebrow {
     margin: 0 0 4pt !important;
-    color: #5f6670 !important;
-    font-size: 6.8pt !important;
-    letter-spacing: 0.11em !important;
+    color: #111 !important;
+    font-family: var(--font-heading) !important;
+    font-size: 10pt !important;
+    letter-spacing: 0.01em !important;
+    text-transform: uppercase !important;
+    position: relative;
   }
 
-  h2 {
-    margin: 0 0 7pt !important;
-    font-size: 11.7pt !important;
-    line-height: 1.17 !important;
-    color: #111 !important;
+  .panel > .eyebrow::after {
+    content: '';
+    display: block;
+    width: 20pt;
+    margin-top: 2.5pt;
+    border-top: 1px solid #111;
+  }
+
+  .panel > h2 {
+    display: none !important;
   }
 
   .section-note,
@@ -471,8 +473,8 @@
   .timeline {
     margin-top: 0 !important;
     border-left: 1px solid #bbc2cb !important;
-    padding-left: 8pt !important;
-    gap: 7pt !important;
+    padding-left: 7pt !important;
+    gap: 5pt !important;
   }
 
   .timeline-item {
@@ -500,8 +502,8 @@
   }
 
   .timeline-item .meta {
-    margin: 2pt 0 3pt !important;
-    font-size: 7.1pt !important;
+    margin: 1pt 0 2pt !important;
+    font-size: 6.8pt !important;
     color: #4c5560 !important;
   }
 
@@ -545,8 +547,8 @@
 
   #approach .card p {
     margin: 0 !important;
-    font-size: 7.6pt !important;
-    line-height: 1.3 !important;
+    font-size: 7.2pt !important;
+    line-height: 1.24 !important;
   }
 
   .tag,
@@ -583,25 +585,32 @@
   }
 
   .print-tools-grid .tool-logo {
-    min-width: 66px;
-    display: inline-grid;
-    margin: 0 4pt 4pt 0;
-    padding: 3pt 3pt;
-    border: 1px solid #c3c9d2 !important;
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    gap: 2.5pt;
+    margin: 0;
+    padding: 0;
+    border: 0 !important;
     border-radius: 0 !important;
     background: transparent !important;
   }
 
   .print-tools-grid .tool-logo-icon {
-    width: 14px;
-    height: 14px;
-    font-size: 14px !important;
-    color: #111 !important;
+    width: 20px;
+    height: 20px;
+    font-size: 20px !important;
+    color: #fff !important;
+    background: #111 !important;
+    border-radius: 999px;
+    padding: 6px;
+    box-sizing: content-box;
   }
 
   .print-tools-grid .tool-logo span {
-    font-size: 5.8pt !important;
+    font-size: 6.2pt !important;
     color: #2a313a !important;
+    font-family: var(--font-mono) !important;
   }
 
   .bullet-list {
@@ -623,5 +632,39 @@
   [data-reveal].is-visible {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  #contact,
+  #education,
+  #skills,
+  #approach,
+  #languages,
+  #tools-print {
+    position: relative;
+    border-top: 0 !important;
+    padding-top: 10pt !important;
+  }
+
+  #contact::before,
+  #education::before,
+  #skills::before,
+  #approach::before,
+  #languages::before,
+  #tools-print::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 9pt;
+    right: 9pt;
+    border-top: 1.4px solid #8b949f;
+  }
+
+  .print-tools-grid {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6pt;
+    flex-wrap: nowrap;
+    width: 100%;
   }
 }
