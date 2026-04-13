@@ -198,7 +198,6 @@ function renderProfile(localeData) {
     <div class="prose-group">
       ${data.paragraphs.map((line) => `<p>${escapeHtml(line)}</p>`).join('')}
     </div>
-    <p class="source-note">${escapeHtml(localeData.labels.profileUpdated)}</p>
   `;
 }
 
