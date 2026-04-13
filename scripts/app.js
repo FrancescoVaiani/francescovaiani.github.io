@@ -24,21 +24,34 @@ const ctaContact = document.getElementById('cta-contact');
 const ctaLinkedIn = document.getElementById('cta-linkedin');
 const ctaPrint = document.getElementById('cta-print');
 
+const toolsStrip = document.getElementById('tools-strip');
+const toolsStripEyebrow = document.getElementById('tools-strip-eyebrow');
+const toolsStripTitle = document.getElementById('tools-strip-title');
+const toolsTrack = document.getElementById('tools-track');
+
+const sectionPrintIntro = document.getElementById('print-intro');
 const sectionProfile = document.getElementById('profile');
 const sectionExperience = document.getElementById('experience');
+const sectionEducation = document.getElementById('education');
 const sectionProductWork = document.getElementById('product-work');
 const sectionApproach = document.getElementById('approach');
 const sectionMedia = document.getElementById('media');
 const sectionSkills = document.getElementById('skills');
+const sectionLanguages = document.getElementById('languages');
 const sectionContact = document.getElementById('contact');
+const sectionToolsPrint = document.getElementById('tools-print');
+
 const sectionElements = [
   sectionProfile,
   sectionExperience,
+  sectionEducation,
   sectionProductWork,
   sectionApproach,
   sectionMedia,
   sectionSkills,
+  sectionLanguages,
   sectionContact,
+  sectionToolsPrint,
 ];
 
 const langButtons = Array.from(document.querySelectorAll('[data-lang]'));
@@ -47,10 +60,7 @@ const themeSwitch = document.getElementById('theme-switch');
 const languageSwitch = document.getElementById('language-switch');
 
 let observer = null;
-let activeLocale = resolveInitialLocale(
-  localStorage.getItem(LOCALE_STORAGE_KEY),
-  navigator.language,
-);
+let activeLocale = resolveInitialLocale(localStorage.getItem(LOCALE_STORAGE_KEY), navigator.language);
 let activeTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
 
 if (!validateSiteContentModel()) {
@@ -130,6 +140,56 @@ function renderHero(localeData) {
   ctaPrint.setAttribute('aria-label', localeData.labels.printAria);
 }
 
+function buildToolMarkup(item, className = '') {
+  const safeClass = className ? ` ${className}` : '';
+  return `
+    <article class="tool-logo${safeClass}">
+      <iconify-icon class="tool-logo-icon" icon="${escapeHtml(item.icon)}" aria-hidden="true"></iconify-icon>
+      <span>${escapeHtml(item.name)}</span>
+    </article>
+  `;
+}
+
+function renderToolsStrip(localeData) {
+  const data = localeData.sections.tools;
+  const copies = 4;
+
+  toolsStripEyebrow.textContent = data.eyebrow;
+  toolsStripTitle.textContent = data.title;
+  toolsStrip.setAttribute('aria-label', localeData.labels.toolsAria);
+
+  const allCopies = Array.from({ length: copies }, (_, copyIndex) =>
+    data.items
+      .map((item) => buildToolMarkup(item, copyIndex === 0 ? 'is-original' : 'is-clone'))
+      .join(''),
+  ).join('');
+  const shift = 100 / copies;
+
+  toolsTrack.innerHTML = allCopies;
+  toolsTrack.style.setProperty('--tools-shift', `${shift}%`);
+
+  for (const clone of toolsTrack.querySelectorAll('.is-clone')) {
+    clone.setAttribute('aria-hidden', 'true');
+  }
+}
+
+function renderPrintIntro(localeData) {
+  const aboutText = localeData.sections.profile.paragraphs[1] || localeData.hero.summary;
+  sectionPrintIntro.innerHTML = `
+    <div class="print-identity-head">
+      <h2>${escapeHtml(localeData.hero.eyebrow)}</h2>
+      <p>${escapeHtml(localeData.hero.title)}</p>
+    </div>
+    <div class="print-about">
+      <h3>${escapeHtml(localeData.labels.aboutLabel)}</h3>
+      <p>${escapeHtml(aboutText)}</p>
+    </div>
+    <div class="print-photo-wrap">
+      <img src="./assets/propic_scontornata_portrait.png" alt="Francesco Vaiani portrait" />
+    </div>
+  `;
+}
+
 function renderProfile(localeData) {
   const data = localeData.sections.profile;
   sectionProfile.innerHTML = `
@@ -153,12 +213,34 @@ function renderExperience(localeData) {
         .map(
           (item) => `
             <article class="timeline-item">
-              <h3>${escapeHtml(item.title)} - ${escapeHtml(item.company)}</h3>
-              <p class="meta">${escapeHtml(item.date)}</p>
+              <h3>${escapeHtml(item.title)}</h3>
+              <p class="meta">${escapeHtml(item.date)} | ${escapeHtml(item.company)} | ${escapeHtml(item.city)}</p>
               <p>${escapeHtml(item.scope)}</p>
               <ul class="bullet-list">
                 ${item.contributions.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
               </ul>
+            </article>
+          `,
+        )
+        .join('')}
+    </div>
+  `;
+}
+
+function renderEducation(localeData) {
+  const data = localeData.sections.education;
+  sectionEducation.innerHTML = `
+    <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
+    <h2>${escapeHtml(data.title)}</h2>
+    <p class="section-note">${escapeHtml(data.note)}</p>
+    <div class="timeline timeline-education">
+      ${data.items
+        .map(
+          (item) => `
+            <article class="timeline-item">
+              <h3>${escapeHtml(item.degree)}</h3>
+              <p class="meta">${escapeHtml(item.date)} | ${escapeHtml(item.institution)} | ${escapeHtml(item.city)}</p>
+              <p>${escapeHtml(item.description)}</p>
             </article>
           `,
         )
@@ -222,7 +304,7 @@ function renderApproach(localeData) {
   sectionApproach.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
-    <div class="cards">
+    <div class="cards cards-single-column">
       ${data.items
         .map(
           (item) => `
@@ -243,27 +325,6 @@ function renderMedia(localeData) {
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
     <p class="section-note">${escapeHtml(data.intro)}</p>
-    <div class="media-grid">
-      ${data.items
-        .map((item) => {
-          const itemAnchor = item.link
-            ? `<a class="media-link" href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.linkLabel)}</a>`
-            : `<span class="media-pending">${escapeHtml(localeData.labels.missingLink)}</span>`;
-
-          return `
-            <article class="media-card">
-              <div class="media-thumb" role="img" aria-label="${escapeHtml(item.title)}"></div>
-              <div class="media-body">
-                <h3>${escapeHtml(item.title)}</h3>
-                <p>${escapeHtml(item.description)}</p>
-                <p class="media-contrib"><strong>${escapeHtml(localeData.labels.contributionPrefix)}:</strong> ${escapeHtml(item.contribution)}</p>
-                ${itemAnchor}
-              </div>
-            </article>
-          `;
-        })
-        .join('')}
-    </div>
   `;
 }
 
@@ -302,6 +363,26 @@ function renderSkills(localeData) {
   `;
 }
 
+function renderLanguages(localeData) {
+  const data = localeData.sections.languages;
+  sectionLanguages.innerHTML = `
+    <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
+    <h2>${escapeHtml(data.title)}</h2>
+    <div class="languages-grid">
+      ${data.items
+        .map(
+          (item) => `
+            <article class="language-card">
+              <h3>${escapeHtml(item.name)}</h3>
+              <p>${escapeHtml(item.level)}</p>
+            </article>
+          `,
+        )
+        .join('')}
+    </div>
+  `;
+}
+
 function renderContact(localeData) {
   const data = localeData.sections.contact;
   sectionContact.innerHTML = `
@@ -322,6 +403,17 @@ function renderContact(localeData) {
           `;
         })
         .join('')}
+    </div>
+  `;
+}
+
+function renderToolsPrint(localeData) {
+  const data = localeData.sections.tools;
+  sectionToolsPrint.innerHTML = `
+    <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
+    <h2>${escapeHtml(data.title)}</h2>
+    <div class="print-tools-grid">
+      ${data.items.map((item) => buildToolMarkup(item)).join('')}
     </div>
   `;
 }
@@ -383,8 +475,11 @@ function renderLocale() {
   applySectionVisibility(hiddenSectionIds);
   renderNavigation(localeData, hiddenSectionIds);
   renderHero(localeData);
+  renderToolsStrip(localeData);
+  renderPrintIntro(localeData);
   renderProfile(localeData);
   renderExperience(localeData);
+  renderEducation(localeData);
   renderProductWork(localeData);
   renderApproach(localeData);
   if (hiddenSectionIds.has('media')) {
@@ -393,7 +488,9 @@ function renderLocale() {
     renderMedia(localeData);
   }
   renderSkills(localeData);
+  renderLanguages(localeData);
   renderContact(localeData);
+  renderToolsPrint(localeData);
 
   const sectionIds = localeData.nav
     .map((item) => item.id)

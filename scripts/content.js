@@ -1,10 +1,12 @@
 export const REQUIRED_SECTION_IDS = [
   'profile',
   'experience',
+  'education',
   'product-work',
   'approach',
   'media',
   'skills',
+  'languages',
   'contact',
 ];
 
@@ -21,11 +23,13 @@ export const SITE_CONTENT = {
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profile' },
       { id: 'experience', label: 'Experience' },
+      { id: 'education', label: 'Education' },
       { id: 'product-work', label: 'Product Work' },
-      { id: 'approach', label: 'Approach' },
-      { id: 'media', label: 'Media' },
-      { id: 'skills', label: 'Skills' },
+      { id: 'approach', label: 'How I Work' },
+      { id: 'skills', label: 'Hard Skills' },
+      { id: 'languages', label: 'Languages' },
       { id: 'contact', label: 'Contact' },
+      { id: 'media', label: 'Media' },
     ],
     rail: {
       title: 'Francesco Vaiani',
@@ -56,7 +60,7 @@ export const SITE_CONTENT = {
         ],
       },
       experience: {
-        eyebrow: 'Experience Timeline',
+        eyebrow: 'Job Experiences',
         title: 'Career path',
         note:
           'Timeline validated with direct user input. AIDILAB ended on May 1, 2021 with the merge into Hopenly and Ispirata.',
@@ -64,6 +68,7 @@ export const SITE_CONTENT = {
           {
             title: 'Product Manager',
             company: 'SECO',
+            city: 'Arezzo',
             date: 'April 2023 - Present',
             scope:
               'Product scope for SaaS platform evolution, prioritization, and cross-functional execution.',
@@ -75,6 +80,7 @@ export const SITE_CONTENT = {
           {
             title: 'Senior Software Developer',
             company: 'SECO Mind',
+            city: 'Padova',
             date: 'June 2021 - April 2023',
             scope: 'Full-stack engineering work across platform and product surfaces.',
             contributions: [
@@ -85,12 +91,28 @@ export const SITE_CONTENT = {
           {
             title: 'Software Developer',
             company: 'AIDILAB',
+            city: 'Siena',
             date: 'May 2016 - May 1, 2021',
             scope:
               'Engineering responsibilities until the AIDILAB merge with Hopenly and Ispirata.',
             contributions: [
               'Built the full-stack foundation that now supports product strategy and technical communication.',
             ],
+          },
+        ],
+      },
+      education: {
+        eyebrow: 'My Education',
+        title: 'Education',
+        note: 'Education entry sourced from user-provided timeline details.',
+        items: [
+          {
+            date: '2004 - 2010',
+            institution: 'Universita di Siena',
+            city: 'Siena',
+            degree: "Bachelor's Degree in Computer Theory and Science",
+            description:
+              'Academic foundation in computer science theory, software fundamentals, and analytical problem solving.',
           },
         ],
       },
@@ -160,8 +182,8 @@ export const SITE_CONTENT = {
         ],
       },
       approach: {
-        eyebrow: 'Product Approach',
-        title: 'How I work',
+        eyebrow: 'How I Work',
+        title: 'Delivery approach',
         items: [
           {
             title: 'Discovery and prioritization',
@@ -188,41 +210,60 @@ export const SITE_CONTENT = {
       media: {
         eyebrow: 'Media / Videos',
         title: 'Video communication work',
-        intro:
-          'Temporarily hidden until final video list is provided.',
+        intro: 'Temporarily hidden until final video list is provided.',
         items: [],
       },
       skills: {
-        eyebrow: 'Skills and Tools',
-        title: 'Grouped capabilities',
+        eyebrow: 'Hard Skills',
+        title: 'Core capabilities',
         groups: [
           {
-            title: 'Product',
+            title: 'Product Leadership',
             items: [
-              { label: 'Discovery and prioritization', value: 92 },
-              { label: 'Roadmapping and scope definition', value: 89 },
+              { label: 'Product strategy and prioritization', value: 93 },
+              { label: 'Roadmap ownership and scope definition', value: 90 },
             ],
           },
           {
-            title: 'Engineering',
+            title: 'Execution',
             items: [
-              { label: 'Microservice architecture design', value: 88 },
-              { label: 'Full-stack implementation fluency', value: 86 },
+              { label: 'Cross-functional stakeholder alignment', value: 91 },
+              { label: 'Technical fluency with engineering teams', value: 88 },
             ],
           },
+        ],
+      },
+      languages: {
+        eyebrow: 'Languages',
+        title: 'Language proficiency',
+        items: [
+          { name: 'Italian', level: 'Native' },
+          { name: 'English', level: 'Professional' },
+        ],
+      },
+      tools: {
+        eyebrow: 'Software Familiarity',
+        title: 'Software familiarity',
+        items: [
           {
-            title: 'SaaS / Domain',
-            items: [
-              { label: 'IoT and device lifecycle platforms', value: 90 },
-              { label: 'Cloud-device integration strategy', value: 87 },
-            ],
+            name: 'PowerPoint',
+            icon: 'simple-icons:microsoftpowerpoint',
           },
           {
-            title: 'Communication',
-            items: [
-              { label: 'Cross-functional alignment', value: 91 },
-              { label: 'Technical storytelling', value: 87 },
-            ],
+            name: 'Excel',
+            icon: 'simple-icons:microsoftexcel',
+          },
+          {
+            name: 'ChatGPT',
+            icon: 'simple-icons:openai',
+          },
+          {
+            name: 'Python',
+            icon: 'simple-icons:python',
+          },
+          {
+            name: 'JavaScript',
+            icon: 'simple-icons:javascript',
           },
         ],
       },
@@ -242,18 +283,8 @@ export const SITE_CONTENT = {
             href: 'https://www.linkedin.com/in/francesco-vaiani-81266aa7/',
           },
           {
-            label: 'Open to roles',
-            value: 'Product Manager Hardware, Product Manager SaaS, Product Manager',
-            href: '',
-          },
-          {
             label: 'Location',
             value: 'Italy',
-            href: '',
-          },
-          {
-            label: 'Languages',
-            value: 'English / Italian',
             href: '',
           },
         ],
@@ -275,6 +306,11 @@ export const SITE_CONTENT = {
       roleLabel: 'Role',
       impactLabel: 'Impact',
       whyMattersLabel: 'Why it matters',
+      cityLabel: 'City',
+      institutionLabel: 'Institution',
+      degreeLabel: 'Degree',
+      aboutLabel: 'About',
+      toolsAria: 'Software logos carousel',
     },
   },
   it: {
@@ -289,11 +325,13 @@ export const SITE_CONTENT = {
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profilo' },
       { id: 'experience', label: 'Esperienza' },
+      { id: 'education', label: 'Formazione' },
       { id: 'product-work', label: 'Progetti' },
-      { id: 'approach', label: 'Approccio' },
-      { id: 'media', label: 'Media' },
-      { id: 'skills', label: 'Competenze' },
+      { id: 'approach', label: 'Come lavoro' },
+      { id: 'skills', label: 'Hard Skills' },
+      { id: 'languages', label: 'Lingue' },
       { id: 'contact', label: 'Contatti' },
+      { id: 'media', label: 'Media' },
     ],
     rail: {
       title: 'Francesco Vaiani',
@@ -324,7 +362,7 @@ export const SITE_CONTENT = {
         ],
       },
       experience: {
-        eyebrow: 'Timeline Esperienza',
+        eyebrow: 'Esperienze',
         title: 'Percorso professionale',
         note:
           'Timeline validata con input diretto. AIDILAB si conclude il 1 maggio 2021 con la merge in Hopenly e Ispirata.',
@@ -332,6 +370,7 @@ export const SITE_CONTENT = {
           {
             title: 'Product Manager',
             company: 'SECO',
+            city: 'Arezzo',
             date: 'aprile 2023 - oggi',
             scope:
               'Responsabilita di prodotto su evoluzione piattaforma SaaS, prioritizzazione ed esecuzione cross-funzionale.',
@@ -343,6 +382,7 @@ export const SITE_CONTENT = {
           {
             title: 'Senior Software Developer',
             company: 'SECO Mind',
+            city: 'Padova',
             date: 'giugno 2021 - aprile 2023',
             scope: 'Contributo full-stack su piattaforme e funzionalita di prodotto.',
             contributions: [
@@ -353,12 +393,28 @@ export const SITE_CONTENT = {
           {
             title: 'Software Developer',
             company: 'AIDILAB',
+            city: 'Siena',
             date: 'maggio 2016 - 1 maggio 2021',
             scope:
               'Responsabilita ingegneristiche fino alla merge di AIDILAB con Hopenly e Ispirata.',
             contributions: [
               'Costruzione della base full-stack ora usata per strategia prodotto e comunicazione tecnica.',
             ],
+          },
+        ],
+      },
+      education: {
+        eyebrow: 'Formazione',
+        title: 'My Education',
+        note: 'Voce formazione ricavata dalle informazioni fornite direttamente.',
+        items: [
+          {
+            date: '2004 - 2010',
+            institution: 'Universita di Siena',
+            city: 'Siena',
+            degree: 'Laurea in Informatica Teorica e Scienze Computazionali',
+            description:
+              'Base accademica in teoria informatica, fondamenti software e approccio analitico al problem solving.',
           },
         ],
       },
@@ -428,8 +484,8 @@ export const SITE_CONTENT = {
         ],
       },
       approach: {
-        eyebrow: 'Approccio al Prodotto',
-        title: 'Metodo di lavoro',
+        eyebrow: 'Come Lavoro',
+        title: 'Metodo di delivery',
         items: [
           {
             title: 'Discovery e prioritizzazione',
@@ -460,36 +516,56 @@ export const SITE_CONTENT = {
         items: [],
       },
       skills: {
-        eyebrow: 'Competenze e Strumenti',
-        title: 'Capacita raggruppate',
+        eyebrow: 'Hard Skills',
+        title: 'Competenze principali',
         groups: [
           {
-            title: 'Product',
+            title: 'Product Leadership',
             items: [
-              { label: 'Discovery e prioritizzazione', value: 92 },
-              { label: 'Roadmapping e definizione scope', value: 89 },
+              { label: 'Strategia prodotto e prioritizzazione', value: 93 },
+              { label: 'Ownership roadmap e definizione scope', value: 90 },
             ],
           },
           {
-            title: 'Engineering',
+            title: 'Execution',
             items: [
-              { label: 'Design architetture a microservizi', value: 88 },
-              { label: 'Fluency di implementazione full-stack', value: 86 },
+              { label: 'Allineamento stakeholder cross-funzionale', value: 91 },
+              { label: 'Fluency tecnica con i team engineering', value: 88 },
             ],
           },
+        ],
+      },
+      languages: {
+        eyebrow: 'Lingue',
+        title: 'Competenze linguistiche',
+        items: [
+          { name: 'Italiano', level: 'Madrelingua' },
+          { name: 'Inglese', level: 'Professionale' },
+        ],
+      },
+      tools: {
+        eyebrow: 'Software Familiarity',
+        title: 'Software conosciuti',
+        items: [
           {
-            title: 'SaaS / Dominio',
-            items: [
-              { label: 'Piattaforme IoT e lifecycle device', value: 90 },
-              { label: 'Strategie di integrazione cloud-device', value: 87 },
-            ],
+            name: 'PowerPoint',
+            icon: 'simple-icons:microsoftpowerpoint',
           },
           {
-            title: 'Comunicazione',
-            items: [
-              { label: 'Allineamento cross-funzionale', value: 91 },
-              { label: 'Storytelling tecnico', value: 87 },
-            ],
+            name: 'Excel',
+            icon: 'simple-icons:microsoftexcel',
+          },
+          {
+            name: 'ChatGPT',
+            icon: 'simple-icons:openai',
+          },
+          {
+            name: 'Python',
+            icon: 'simple-icons:python',
+          },
+          {
+            name: 'JavaScript',
+            icon: 'simple-icons:javascript',
           },
         ],
       },
@@ -509,18 +585,8 @@ export const SITE_CONTENT = {
             href: 'https://www.linkedin.com/in/francesco-vaiani-81266aa7/',
           },
           {
-            label: 'Ruoli target',
-            value: 'Product Manager Hardware, Product Manager SaaS, Product Manager',
-            href: '',
-          },
-          {
             label: 'Localita',
             value: 'Italia',
-            href: '',
-          },
-          {
-            label: 'Lingue',
-            value: 'Inglese / Italiano',
             href: '',
           },
         ],
@@ -542,6 +608,11 @@ export const SITE_CONTENT = {
       roleLabel: 'Ruolo',
       impactLabel: 'Impatto',
       whyMattersLabel: 'Perche conta',
+      cityLabel: 'Citta',
+      institutionLabel: 'Istituzione',
+      degreeLabel: 'Titolo',
+      aboutLabel: 'About',
+      toolsAria: 'Carosello software',
     },
   },
 };

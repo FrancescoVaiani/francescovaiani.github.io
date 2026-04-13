@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
     <link rel="stylesheet" href="./design-system/css/tokens.css" />
     <link rel="stylesheet" href="./design-system/css/base.css" />
     <link rel="stylesheet" href="./styles/site.css" />
@@ -23,9 +24,7 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow" id="hero-eyebrow">Francesco Vaiani</p>
-          <h1 id="hero-title">
-            Technical Product Manager for SaaS, IoT, and Device Management
-          </h1>
+          <h1 id="hero-title">Technical Product Manager for SaaS, IoT, and Device Management</h1>
           <p id="hero-summary">
             From code to product strategy: I connect business goals and technical execution to
             deliver clear roadmaps, faster alignment, and reliable outcomes.
@@ -64,6 +63,37 @@
       </div>
     </section>
 
+    <section id="tools-strip" class="tools-strip" data-reveal aria-label="Software logos carousel">
+      <div class="container">
+        <p class="eyebrow tools-strip-eyebrow" id="tools-strip-eyebrow">Software Familiarity</p>
+        <h2 class="tools-strip-title" id="tools-strip-title">Software familiarity</h2>
+        <div class="tools-marquee" role="region" aria-live="polite">
+          <div class="tools-track" id="tools-track">
+            <article class="tool-logo">
+              <iconify-icon class="tool-logo-icon" icon="simple-icons:microsoftpowerpoint" aria-hidden="true"></iconify-icon>
+              <span>PowerPoint</span>
+            </article>
+            <article class="tool-logo">
+              <iconify-icon class="tool-logo-icon" icon="simple-icons:microsoftexcel" aria-hidden="true"></iconify-icon>
+              <span>Excel</span>
+            </article>
+            <article class="tool-logo">
+              <iconify-icon class="tool-logo-icon" icon="simple-icons:openai" aria-hidden="true"></iconify-icon>
+              <span>ChatGPT</span>
+            </article>
+            <article class="tool-logo">
+              <iconify-icon class="tool-logo-icon" icon="simple-icons:python" aria-hidden="true"></iconify-icon>
+              <span>Python</span>
+            </article>
+            <article class="tool-logo">
+              <iconify-icon class="tool-logo-icon" icon="simple-icons:javascript" aria-hidden="true"></iconify-icon>
+              <span>JavaScript</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="container">
       <div class="shell">
         <aside class="rail chrome-only">
@@ -74,9 +104,11 @@
             <a class="nav-item active" href="#hero">Hero</a>
             <a class="nav-item" href="#profile">Profile</a>
             <a class="nav-item" href="#experience">Experience</a>
+            <a class="nav-item" href="#education">Education</a>
             <a class="nav-item" href="#product-work">Product Work</a>
-            <a class="nav-item" href="#approach">Approach</a>
-            <a class="nav-item" href="#skills">Skills</a>
+            <a class="nav-item" href="#approach">How I Work</a>
+            <a class="nav-item" href="#skills">Hard Skills</a>
+            <a class="nav-item" href="#languages">Languages</a>
             <a class="nav-item" href="#contact">Contact</a>
           </nav>
 
@@ -99,6 +131,8 @@
         </aside>
 
         <main class="content" id="content-root">
+          <section id="print-intro" class="panel print-only" aria-hidden="true"></section>
+
           <section id="profile" class="panel" data-reveal>
             <p class="eyebrow">Profile Summary</p>
             <h2>Product-first identity, built on full-stack depth</h2>
@@ -118,132 +152,43 @@
           </section>
 
           <section id="experience" class="panel" data-reveal>
-            <p class="eyebrow">Experience Timeline</p>
+            <p class="eyebrow">Job Experiences</p>
             <h2>Career path</h2>
-            <div class="timeline">
-              <article class="timeline-item">
-                <h3>Product Manager - SECO</h3>
-                <p class="meta">April 2023 - Present</p>
-                <p>SaaS product evolution, prioritization, and cross-functional execution.</p>
-              </article>
-              <article class="timeline-item">
-                <h3>Senior Software Developer - SECO Mind</h3>
-                <p class="meta">June 2021 - April 2023</p>
-                <p>Full-stack engineering work across platform and product surfaces.</p>
-              </article>
-              <article class="timeline-item">
-                <h3>Software Developer - AIDILAB</h3>
-                <p class="meta">May 2016 - May 1, 2021</p>
-                <p>Engineering work until merge with Hopenly and Ispirata.</p>
-              </article>
-            </div>
+          </section>
+
+          <section id="education" class="panel" data-reveal>
+            <p class="eyebrow">My Education</p>
+            <h2>Education</h2>
           </section>
 
           <section id="product-work" class="panel" data-reveal>
             <p class="eyebrow">Selected Product Work</p>
             <h2>Flagship SaaS projects</h2>
-            <div class="cards">
-              <article class="card">
-                <span class="tag">SaaS #1 - IoT</span>
-                <h3>UDOO Cloud</h3>
-                <p>
-                  Main architect: microservice backend, frontend development, RabbitMQ-based
-                  messaging, and MongoDB data model design.
-                </p>
-              </article>
-              <article class="card">
-                <span class="tag">SaaS #2 - Device Management</span>
-                <h3>Edgehog IoT (original implementation)</h3>
-                <p>
-                  Main architect: microservice backend, frontend, MQTT messaging with Mosquitto,
-                  hybrid SQL + MongoDB model, and AWS IoT Cloud integration.
-                </p>
-              </article>
-            </div>
           </section>
 
           <section id="approach" class="panel" data-reveal>
-            <p class="eyebrow">Product Approach</p>
-            <h2>How I work</h2>
-            <div class="cards">
-              <article class="card">
-                <h3>Discovery and prioritization</h3>
-                <p>Roadmap choices based on user value, technical feasibility, and delivery risk.</p>
-              </article>
-              <article class="card">
-                <h3>Technical depth in product decisions</h3>
-                <p>Architecture-aware trade-offs to improve execution quality.</p>
-              </article>
-              <article class="card">
-                <h3>Business-engineering translation</h3>
-                <p>Technical complexity translated into clear decisions for stakeholders.</p>
-              </article>
-              <article class="card">
-                <h3>Target opportunity focus</h3>
-                <p>Product Manager Hardware, Product Manager SaaS, and Product Manager roles.</p>
-              </article>
-            </div>
+            <p class="eyebrow">How I Work</p>
+            <h2>Delivery approach</h2>
           </section>
 
           <section id="media" class="panel" data-reveal hidden aria-hidden="true"></section>
 
           <section id="skills" class="panel" data-reveal>
-            <p class="eyebrow">Skills and Tools</p>
-            <h2>Grouped capabilities</h2>
-            <div class="skills-panels">
-              <article class="skill-panel">
-                <h3>Product</h3>
-                <div class="skill-meter" style="--value:92%">
-                  <div class="skill-head"><span>Discovery and prioritization</span><strong>92%</strong></div>
-                  <div class="skill-track"><span class="skill-fill"></span></div>
-                </div>
-                <div class="skill-meter" style="--value:89%">
-                  <div class="skill-head"><span>Roadmapping and scope definition</span><strong>89%</strong></div>
-                  <div class="skill-track"><span class="skill-fill"></span></div>
-                </div>
-              </article>
-              <article class="skill-panel">
-                <h3>Engineering</h3>
-                <div class="skill-meter" style="--value:88%">
-                  <div class="skill-head"><span>Microservice architecture design</span><strong>88%</strong></div>
-                  <div class="skill-track"><span class="skill-fill"></span></div>
-                </div>
-                <div class="skill-meter" style="--value:86%">
-                  <div class="skill-head"><span>Full-stack implementation fluency</span><strong>86%</strong></div>
-                  <div class="skill-track"><span class="skill-fill"></span></div>
-                </div>
-              </article>
-            </div>
+            <p class="eyebrow">Hard Skills</p>
+            <h2>Core capabilities</h2>
+          </section>
+
+          <section id="languages" class="panel" data-reveal>
+            <p class="eyebrow">Languages</p>
+            <h2>Language proficiency</h2>
           </section>
 
           <section id="contact" class="panel" data-reveal>
             <p class="eyebrow">Contact</p>
             <h2>Professional channels</h2>
-            <div class="contact-grid">
-              <article class="contact-item">
-                <h3>Email</h3>
-                <p>
-                  <a href="mailto:francesco.vaiani@gmail.com">francesco.vaiani@gmail.com</a>
-                </p>
-              </article>
-              <article class="contact-item">
-                <h3>LinkedIn</h3>
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/francesco-vaiani-81266aa7/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    francesco-vaiani-81266aa7
-                  </a>
-                </p>
-              </article>
-              <article class="contact-item">
-                <h3>Open to roles</h3>
-                <p>Product Manager Hardware, Product Manager SaaS, Product Manager</p>
-              </article>
-            </div>
           </section>
+
+          <section id="tools-print" class="panel print-only" aria-hidden="true"></section>
         </main>
       </div>
     </div>

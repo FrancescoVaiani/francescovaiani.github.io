@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="xlsTitle">
+  <title id="xlsTitle">Excel</title>
+  <rect x="8" y="8" width="80" height="80" rx="14" fill="none" stroke="#111" stroke-width="6"/>
+  <rect x="24" y="22" width="48" height="52" fill="none" stroke="#111" stroke-width="5"/>
+  <path d="M24 39h48M24 56h48M40 22v52M56 22v52" stroke="#111" stroke-width="4"/>
+  <text x="18" y="85" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111">X</text>
+</svg>
