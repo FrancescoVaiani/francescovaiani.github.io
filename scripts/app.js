@@ -253,15 +253,16 @@ function renderEducation(localeData) {
 function renderProductWork(localeData) {
   const data = localeData.sections.productWork;
   const introMarkup = data.intro ? `<p class="section-note">${escapeHtml(data.intro)}</p>` : '';
+  sectionProductWork.classList.remove('section-variant-expertise');
   sectionProductWork.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
     ${introMarkup}
-    <div class="cards">
+    <div class="cards cards-single-column" role="list">
       ${data.items
         .map(
           (item) => `
-            <article class="card">
+            <article class="card" role="listitem">
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(item.detail)}</p>
             </article>
@@ -277,16 +278,17 @@ function renderApproach(localeData) {
   sectionApproach.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
-    <div class="cards cards-single-column">
+    <div class="approach-orbit" role="list">
       ${data.items
-        .map(
-          (item) => `
-            <article class="card">
+        .map((item, index) => {
+          const step = index + 1;
+          return `
+            <article class="card approach-step approach-step--${step}" role="listitem">
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(item.detail)}</p>
             </article>
-          `,
-        )
+          `;
+        })
         .join('')}
     </div>
   `;
