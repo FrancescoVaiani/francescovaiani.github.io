@@ -58,8 +58,8 @@ const sectionElements = [
 
 const langButtons = Array.from(document.querySelectorAll('[data-lang]'));
 const themeButtons = Array.from(document.querySelectorAll('[data-theme-set]'));
-const themeSwitch = document.getElementById('theme-switch');
-const languageSwitch = document.getElementById('language-switch');
+const themeSwitches = Array.from(document.querySelectorAll('[data-role="theme-switch"]'));
+const languageSwitches = Array.from(document.querySelectorAll('[data-role="language-switch"]'));
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
 const mobileMenuLabel = mobileMenuToggle ? mobileMenuToggle.querySelector('.mobile-menu-label') : null;
@@ -513,8 +513,12 @@ function renderLocale() {
 
   railTitle.textContent = localeData.rail.title;
   railSubtitle.textContent = localeData.rail.subtitle;
-  languageSwitch.setAttribute('aria-label', localeData.labels.languageToggle);
-  themeSwitch.setAttribute('aria-label', localeData.labels.themeToggle);
+  for (const languageSwitch of languageSwitches) {
+    languageSwitch.setAttribute('aria-label', localeData.labels.languageToggle);
+  }
+  for (const themeSwitch of themeSwitches) {
+    themeSwitch.setAttribute('aria-label', localeData.labels.themeToggle);
+  }
   setMobileMenuState(document.body.classList.contains('mobile-menu-open'), localeData.labels);
 
   applySectionVisibility(hiddenSectionIds);
@@ -549,12 +553,32 @@ function renderLocale() {
     }
   }
 
-  const themeLabelLight = document.getElementById('theme-light');
-  const themeLabelDark = document.getElementById('theme-dark');
-  const themeLabelAuto = document.getElementById('theme-auto');
-  if (themeLabelLight) themeLabelLight.textContent = localeData.labels.themeLight;
-  if (themeLabelDark) themeLabelDark.textContent = localeData.labels.themeDark;
-  if (themeLabelAuto) themeLabelAuto.textContent = localeData.labels.themeAuto;
+  for (const themeButton of themeButtons) {
+    let localizedLabel = '';
+    if (themeButton.dataset.themeSet === 'light') {
+      localizedLabel = localeData.labels.themeLight;
+    } else if (themeButton.dataset.themeSet === 'dark') {
+      localizedLabel = localeData.labels.themeDark;
+    } else if (themeButton.dataset.themeSet === 'auto') {
+      localizedLabel = localeData.labels.themeAuto;
+    }
+
+    if (!localizedLabel) {
+      continue;
+    }
+
+    themeButton.setAttribute('aria-label', localizedLabel);
+    themeButton.setAttribute('title', localizedLabel);
+
+    const hiddenLabel = themeButton.querySelector('[data-theme-label]');
+    if (hiddenLabel) {
+      hiddenLabel.textContent = localizedLabel;
+    }
+
+    if (!themeButton.classList.contains('theme-btn--icon')) {
+      themeButton.textContent = localizedLabel;
+    }
+  }
 
   renderLanguageState();
   setupRevealObserver();

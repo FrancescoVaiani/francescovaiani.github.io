@@ -32,6 +32,37 @@
       <span class="mobile-menu-label">Menu</span>
     </button>
     <div id="mobile-menu-backdrop" class="mobile-menu-backdrop chrome-only" hidden></div>
+    <div id="desktop-switches" class="chrome-only">
+      <div
+        class="lang-switch"
+        id="language-switch-desktop"
+        data-role="language-switch"
+        aria-label="Language switch"
+      >
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="it">IT</button>
+      </div>
+
+      <div
+        class="theme-switch"
+        id="theme-switch-desktop"
+        data-role="theme-switch"
+        aria-label="Theme switch"
+      >
+        <button class="theme-btn theme-btn--icon" type="button" data-theme-set="light">
+          <iconify-icon icon="mdi:white-balance-sunny" aria-hidden="true"></iconify-icon>
+          <span class="sr-only" data-theme-label="light">Light</span>
+        </button>
+        <button class="theme-btn theme-btn--icon" type="button" data-theme-set="dark">
+          <iconify-icon icon="mdi:moon-waning-crescent" aria-hidden="true"></iconify-icon>
+          <span class="sr-only" data-theme-label="dark">Dark</span>
+        </button>
+        <button class="theme-btn theme-btn--icon" type="button" data-theme-set="auto">
+          <iconify-icon icon="mdi:theme-light-dark" aria-hidden="true"></iconify-icon>
+          <span class="sr-only" data-theme-label="auto">Auto</span>
+        </button>
+      </div>
+    </div>
 
     <section id="hero" class="hero-impact is-visible" data-reveal>
       <div class="hero-inner">
@@ -83,21 +114,25 @@
 
           <nav class="nav-list" id="nav-list" aria-label="Section navigation"></nav>
 
-          <div class="lang-switch" id="language-switch" aria-label="Language switch">
+          <div
+            class="lang-switch"
+            id="language-switch-mobile"
+            data-role="language-switch"
+            aria-label="Language switch"
+          >
             <button type="button" data-lang="en">EN</button>
             <button type="button" data-lang="it">IT</button>
           </div>
 
-          <div class="theme-switch" id="theme-switch" aria-label="Theme switch">
-            <button class="theme-btn" id="theme-light" type="button" data-theme-set="light">
-              Light
-            </button>
-            <button class="theme-btn" id="theme-dark" type="button" data-theme-set="dark">
-              Dark
-            </button>
-            <button class="theme-btn" id="theme-auto" type="button" data-theme-set="auto">
-              Auto
-            </button>
+          <div
+            class="theme-switch"
+            id="theme-switch-mobile"
+            data-role="theme-switch"
+            aria-label="Theme switch"
+          >
+            <button class="theme-btn" type="button" data-theme-set="light">Light</button>
+            <button class="theme-btn" type="button" data-theme-set="dark">Dark</button>
+            <button class="theme-btn" type="button" data-theme-set="auto">Auto</button>
           </div>
         </aside>
 
