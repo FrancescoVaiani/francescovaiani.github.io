@@ -40,6 +40,8 @@ const sectionSkills = document.getElementById('skills');
 const sectionLanguages = document.getElementById('languages');
 const sectionContact = document.getElementById('contact');
 const sectionToolsPrint = document.getElementById('tools-print');
+const printLeftCol = document.getElementById('print-left-col');
+const printRightCol = document.getElementById('print-right-col');
 
 const sectionElements = [
   sectionProfile,
@@ -393,6 +395,50 @@ function renderToolsPrint(localeData) {
   `;
 }
 
+function buildPrintPanelMarkup(sourceSection, sourceId) {
+  if (!sourceSection) {
+    return '';
+  }
+
+  return `
+    <section class="panel print-panel print-source-${sourceId}">
+      ${sourceSection.innerHTML}
+    </section>
+  `;
+}
+
+function renderPrintLayout(hiddenSectionIds) {
+  if (!printLeftCol || !printRightCol) {
+    return;
+  }
+
+  const sectionById = {
+    'print-intro': sectionPrintIntro,
+    contact: sectionContact,
+    skills: sectionSkills,
+    languages: sectionLanguages,
+    experience: sectionExperience,
+    education: sectionEducation,
+    approach: sectionApproach,
+    'product-work': sectionProductWork,
+    'tools-print': sectionToolsPrint,
+  };
+
+  const shouldInclude = (id) => id === 'print-intro' || id === 'tools-print' || !hiddenSectionIds.has(id);
+  const leftOrder = ['print-intro', 'contact', 'skills', 'languages'];
+  const rightOrder = ['experience', 'education', 'approach', 'product-work', 'tools-print'];
+
+  printLeftCol.innerHTML = leftOrder
+    .filter(shouldInclude)
+    .map((id) => buildPrintPanelMarkup(sectionById[id], id))
+    .join('');
+
+  printRightCol.innerHTML = rightOrder
+    .filter(shouldInclude)
+    .map((id) => buildPrintPanelMarkup(sectionById[id], id))
+    .join('');
+}
+
 function setupRevealObserver() {
   if (observer) {
     observer.disconnect();
@@ -466,6 +512,7 @@ function renderLocale() {
   renderLanguages(localeData);
   renderContact(localeData);
   renderToolsPrint(localeData);
+  renderPrintLayout(hiddenSectionIds);
 
   const sectionIds = localeData.nav
     .map((item) => item.id)

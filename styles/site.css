@@ -511,7 +511,6 @@
   .tools-strip,
   .rail,
   #profile,
-  #product-work,
   #media,
   .theme-switch,
   .lang-switch,
@@ -523,6 +522,10 @@
 
   .print-only {
     display: block !important;
+  }
+
+  .content > section {
+    display: none !important;
   }
 
   .container {
@@ -538,11 +541,41 @@
   }
 
   .content {
+    display: block !important;
+    border: 1px solid #101216 !important;
+    background: #fff !important;
+  }
+
+  #print-layout {
     display: grid !important;
     grid-template-columns: 31% 69% !important;
     gap: 0 !important;
-    border: 1px solid #101216 !important;
+  }
+
+  #print-left-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border-right: 1px solid #d5d9df;
+  }
+
+  #print-right-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: space-between;
+  }
+
+  #print-left-col .print-panel,
+  #print-right-col .print-panel {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 8pt 9pt !important;
     background: #fff !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .panel {
@@ -554,6 +587,10 @@
     background: #fff !important;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .print-source-print-intro {
+    padding: 0 !important;
   }
 
   #print-intro {
@@ -596,9 +633,14 @@
     border-right: 1px solid #d5d9df;
   }
 
-  #tools-print {
+  #product-work {
     grid-column: 2;
     grid-row: 4;
+  }
+
+  #tools-print {
+    grid-column: 2;
+    grid-row: 5;
   }
 
   .print-identity-head {
@@ -767,7 +809,7 @@
   }
 
   /* Print focus: keep the top 4 hard skills, hide the lowest-priority 2. */
-  #skills .skill-panel:nth-of-type(3) {
+  .print-source-skills .skill-panel:nth-of-type(3) {
     display: none !important;
   }
 
@@ -799,10 +841,30 @@
     color: #111 !important;
   }
 
-  #approach .card p {
+  .print-source-approach .card p {
     margin: 0 !important;
     font-size: 7.2pt !important;
     line-height: 1.24 !important;
+  }
+
+  /* Print compact mode for Domain Expertise: eyebrow + cards only, tight spacing. */
+  .print-source-product-work .cards {
+    margin-top: 0 !important;
+  }
+
+  .print-source-product-work .card {
+    margin: 0 0 4pt !important;
+  }
+
+  .print-source-product-work .card h3 {
+    margin: 0 0 1pt !important;
+    font-size: 8.4pt !important;
+  }
+
+  .print-source-product-work .card p {
+    margin: 0 !important;
+    font-size: 7pt !important;
+    line-height: 1.22 !important;
   }
 
   .tag,
@@ -888,23 +950,16 @@
     transform: none !important;
   }
 
-  #contact,
-  #education,
-  #skills,
-  #approach,
-  #languages,
-  #tools-print {
+  #print-left-col .print-panel + .print-panel,
+  #print-right-col .print-panel + .print-panel {
+    margin-top: 4pt !important;
     position: relative;
     border-top: 0 !important;
     padding-top: 10pt !important;
   }
 
-  #contact::before,
-  #education::before,
-  #skills::before,
-  #approach::before,
-  #languages::before,
-  #tools-print::before {
+  #print-left-col .print-panel + .print-panel::before,
+  #print-right-col .print-panel + .print-panel::before {
     content: '';
     position: absolute;
     top: 0;
