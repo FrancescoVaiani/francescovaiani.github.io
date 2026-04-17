@@ -68,6 +68,7 @@ let observer = null;
 let activeLocale = resolveInitialLocale(localStorage.getItem(LOCALE_STORAGE_KEY), navigator.language);
 let activeTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
 const mobileMenuMedia = window.matchMedia('(max-width: 1024px)');
+const MAILTO_PREFIX_CODES = [109, 97, 105, 108, 116, 111, 58];
 
 if (!validateSiteContentModel()) {
   throw new Error('Invalid content model. Missing required sections.');
@@ -383,6 +384,42 @@ function renderLanguages(localeData) {
   `;
 }
 
+function decodeCharCodes(codes) {
+  return codes.map((code) => String.fromCharCode(code)).join('');
+}
+
+function parseEncodedCodes(rawValue) {
+  if (!rawValue) {
+    return [];
+  }
+
+  return rawValue
+    .split('.')
+    .map((part) => Number.parseInt(part, 10))
+    .filter((code) => Number.isInteger(code) && code >= 32 && code <= 126);
+}
+
+function buildContactValueMarkup(item) {
+  if (item.type === 'obfuscated-email' && Array.isArray(item.emailCodes)) {
+    const safeCodes = item.emailCodes
+      .map((value) => Number.parseInt(String(value), 10))
+      .filter((code) => Number.isInteger(code) && code >= 32 && code <= 126);
+
+    if (safeCodes.length > 0) {
+      const decodedEmail = decodeCharCodes(safeCodes);
+      const fallbackMaskedValue = decodedEmail.replace('@', ' [at] ').replace(/\./g, ' [dot] ');
+      const maskedValue = item.maskedValue || fallbackMaskedValue;
+      return `<a href="#" data-obfuscated-email="${escapeHtml(safeCodes.join('.'))}">${escapeHtml(maskedValue)}</a>`;
+    }
+  }
+
+  if (item.href) {
+    return `<a href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.value)}</a>`;
+  }
+
+  return `<span>${escapeHtml(item.value || '')}</span>`;
+}
+
 function renderContact(localeData) {
   const data = localeData.sections.contact;
   sectionContact.innerHTML = `
@@ -392,9 +429,7 @@ function renderContact(localeData) {
     <div class="contact-grid">
       ${data.items
         .map((item) => {
-          const value = item.href
-            ? `<a href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.value)}</a>`
-            : `<span>${escapeHtml(item.value)}</span>`;
+          const value = buildContactValueMarkup(item);
           return `
             <article class="contact-item">
               <h3>${escapeHtml(item.label)}</h3>
@@ -643,6 +678,19 @@ function setupEvents() {
   }
 
   document.addEventListener('click', (event) => {
+    const obfuscatedEmailTrigger = event.target.closest('[data-obfuscated-email]');
+    if (obfuscatedEmailTrigger) {
+      event.preventDefault();
+      const encoded = obfuscatedEmailTrigger.getAttribute('data-obfuscated-email') || '';
+      const emailCodes = parseEncodedCodes(encoded);
+      if (emailCodes.length > 0) {
+        const address = decodeCharCodes(emailCodes);
+        const mailtoHref = `${decodeCharCodes(MAILTO_PREFIX_CODES)}${address}`;
+        window.location.href = mailtoHref;
+      }
+      return;
+    }
+
     const printAction = event.target.closest('[data-action="print"]');
     if (printAction) {
       event.preventDefault();
