@@ -81,9 +81,10 @@ export const SITE_CONTENT = {
             company: 'SECO Mind',
             city: 'Padova',
             date: 'June 2021 - April 2023',
-            scope: 'I worked on full-stack engineering across platform and product surfaces.',
+            scope:
+              'I worked as an embedded software developer focused on the client-side part of the service.',
             contributions: [
-              'I contributed to backend and frontend implementation quality in SaaS platform contexts.',
+              'I developed and maintained the embedded client-side component of the service.',
               'I built technical experience now applied to product leadership and stakeholder alignment.',
             ],
           },
@@ -95,6 +96,7 @@ export const SITE_CONTENT = {
             scope:
               'I covered engineering responsibilities until the AIDILAB merge with Hopenly and Ispirata.',
             contributions: [
+              'I contributed to backend and frontend implementation quality in SaaS platform contexts.',
               'I built the full-stack foundation that now supports my product strategy and technical communication.',
             ],
           },
@@ -381,9 +383,10 @@ export const SITE_CONTENT = {
             company: 'SECO Mind',
             city: 'Padova',
             date: 'giugno 2021 - aprile 2023',
-            scope: 'Ho lavorato come full-stack engineer su piattaforme e funzionalita di prodotto.',
+            scope:
+              'Ho lavorato come embedded software developer concentrandomi sulla parte client-side del servizio.',
             contributions: [
-              'Ho contribuito a backend e frontend in contesti SaaS.',
+              'Ho sviluppato e mantenuto il componente embedded client-side del servizio.',
               'Ho costruito la base tecnica che oggi applico a leadership di prodotto e allineamento stakeholder.',
             ],
           },
@@ -395,6 +398,7 @@ export const SITE_CONTENT = {
             scope:
               'Ho gestito responsabilita ingegneristiche fino alla merge di AIDILAB con Hopenly e Ispirata.',
             contributions: [
+              'Ho contribuito a backend e frontend in contesti SaaS.',
               'Ho costruito la base full-stack che ora uso per strategia prodotto e comunicazione tecnica.',
             ],
           },
