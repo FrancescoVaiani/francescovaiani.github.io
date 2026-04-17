@@ -48,6 +48,16 @@ export function runSiteUtilsTests() {
       },
     },
     {
+      name: 'locale content requires hero nav entry',
+      fn: () => {
+        const localeWithoutHero = {
+          ...SITE_CONTENT.en,
+          nav: SITE_CONTENT.en.nav.filter((item) => item.id !== 'hero'),
+        };
+        assert.equal(localeHasRequiredSections(localeWithoutHero), false);
+      },
+    },
+    {
       name: 'full site content model validates',
       fn: () => {
         assert.equal(validateSiteContentModel(), true);

@@ -5,6 +5,10 @@ export const THEMES = ['light', 'dark', 'auto'];
 export const LOCALE_STORAGE_KEY = 'signaldeck.locale';
 export const THEME_STORAGE_KEY = 'signaldeck.theme';
 
+const SECTION_ID_TO_CONTENT_KEY = {
+  'product-work': 'productWork',
+};
+
 export function normalizeTheme(theme) {
   return THEMES.includes(theme) ? theme : 'auto';
 }
@@ -21,16 +25,21 @@ export function resolveInitialLocale(savedLocale, browserLanguage = 'en') {
   return 'en';
 }
 
-export function localeHasRequiredSections(localeContent) {
-  return REQUIRED_SECTION_IDS.every((sectionId) => {
-    if (sectionId === 'hero') {
-      return Array.isArray(localeContent.nav) && localeContent.nav.some((item) => item.id === 'hero');
-    }
+function mapSectionIdToContentKey(sectionId) {
+  return SECTION_ID_TO_CONTENT_KEY[sectionId] || sectionId;
+}
 
-    const map = {
-      'product-work': 'productWork',
-    };
-    const key = map[sectionId] || sectionId;
+function hasHeroNavEntry(localeContent) {
+  return Array.isArray(localeContent?.nav) && localeContent.nav.some((item) => item.id === 'hero');
+}
+
+export function localeHasRequiredSections(localeContent) {
+  if (!localeContent || !hasHeroNavEntry(localeContent)) {
+    return false;
+  }
+
+  return REQUIRED_SECTION_IDS.every((sectionId) => {
+    const key = mapSectionIdToContentKey(sectionId);
     return Boolean(localeContent.sections && localeContent.sections[key]);
   });
 }

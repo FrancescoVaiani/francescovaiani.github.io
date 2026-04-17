@@ -2,6 +2,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveRequestPath } from './dev-server-path.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,25 +23,13 @@ const MIME_TYPES = {
   '.webp': 'image/webp',
 };
 
-function resolveFilePath(urlPath) {
-  const pathname = decodeURIComponent((urlPath || '/').split('?')[0]);
-  const normalized = pathname === '/' ? '/index.html' : pathname;
-  const absolutePath = path.resolve(ROOT_DIR, `.${normalized}`);
-
-  if (!absolutePath.startsWith(ROOT_DIR)) {
-    return null;
-  }
-
-  return absolutePath;
-}
-
 function getMimeType(filePath) {
   const ext = path.extname(filePath).toLowerCase();
   return MIME_TYPES[ext] || 'application/octet-stream';
 }
 
 const server = createServer(async (req, res) => {
-  const requestedPath = resolveFilePath(req.url);
+  const requestedPath = resolveRequestPath(ROOT_DIR, req.url);
   if (!requestedPath) {
     res.writeHead(403, { 'content-type': 'text/plain; charset=utf-8' });
     res.end('Forbidden');

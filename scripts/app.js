@@ -69,6 +69,10 @@ let activeLocale = resolveInitialLocale(localStorage.getItem(LOCALE_STORAGE_KEY)
 let activeTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
 const mobileMenuMedia = window.matchMedia('(max-width: 1024px)');
 const MAILTO_PREFIX_CODES = [109, 97, 105, 108, 116, 111, 58];
+const PRINT_PORTRAIT_SRC = './assets/propic_scontornata_portrait.png';
+const PRINT_PORTRAIT_LOAD_TIMEOUT_MS = 2500;
+let printPortraitHydrated = false;
+let printPortraitLoadPromise = null;
 
 if (!validateSiteContentModel()) {
   throw new Error('Invalid content model. Missing required sections.');
@@ -211,9 +215,18 @@ function renderPrintIntro(localeData) {
       <p>${escapeHtml(aboutText)}</p>
     </div>
     <div class="print-photo-wrap">
-      <img src="./assets/propic_scontornata_portrait.png" alt="Francesco Vaiani portrait" />
+      <img
+        data-print-portrait
+        data-src="${escapeHtml(PRINT_PORTRAIT_SRC)}"
+        alt="Francesco Vaiani portrait"
+        width="600"
+        height="600"
+        decoding="async"
+      />
     </div>
   `;
+  printPortraitHydrated = false;
+  printPortraitLoadPromise = null;
 }
 
 function renderProfile(localeData) {
@@ -497,6 +510,105 @@ function renderPrintLayout(hiddenSectionIds) {
     .join('');
 }
 
+function hydratePrintPortraitSources() {
+  const portraits = Array.from(document.querySelectorAll('[data-print-portrait]'));
+  const hydratedPortraits = [];
+
+  for (const portrait of portraits) {
+    const src = portrait.getAttribute('data-src');
+    if (!src) {
+      continue;
+    }
+
+    portrait.setAttribute('loading', 'eager');
+    if (portrait.getAttribute('src') !== src) {
+      portrait.setAttribute('src', src);
+    }
+
+    hydratedPortraits.push(portrait);
+  }
+
+  return hydratedPortraits;
+}
+
+function isImageLoaded(image) {
+  return image.complete && image.naturalWidth > 0;
+}
+
+function waitForImageLoad(image) {
+  if (image.complete) {
+    return Promise.resolve(isImageLoaded(image));
+  }
+
+  return new Promise((resolve) => {
+    let settled = false;
+    const timeoutId = window.setTimeout(() => {
+      settle();
+    }, PRINT_PORTRAIT_LOAD_TIMEOUT_MS);
+
+    const settle = () => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      window.clearTimeout(timeoutId);
+      image.removeEventListener('load', onReady);
+      image.removeEventListener('error', onReady);
+      resolve(isImageLoaded(image));
+    };
+
+    const onReady = () => {
+      settle();
+    };
+
+    image.addEventListener('load', onReady);
+    image.addEventListener('error', onReady);
+  });
+}
+
+function ensurePrintPortraitIsReady() {
+  if (printPortraitHydrated) {
+    return Promise.resolve();
+  }
+
+  if (printPortraitLoadPromise) {
+    return printPortraitLoadPromise;
+  }
+
+  const portraits = hydratePrintPortraitSources();
+  if (portraits.length === 0) {
+    printPortraitHydrated = true;
+    return Promise.resolve();
+  }
+
+  if (portraits.every((portrait) => isImageLoaded(portrait))) {
+    printPortraitHydrated = true;
+    return Promise.resolve();
+  }
+
+  printPortraitLoadPromise = Promise.all(portraits.map((portrait) => waitForImageLoad(portrait)))
+    .then((results) => {
+      printPortraitHydrated = results.every(Boolean);
+    })
+    .finally(() => {
+      printPortraitLoadPromise = null;
+    });
+
+  return printPortraitLoadPromise;
+}
+
+function schedulePrintPortraitPreload() {
+  const preload = () => {
+    void ensurePrintPortraitIsReady();
+  };
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(preload, { timeout: 1200 });
+  } else {
+    window.setTimeout(preload, 700);
+  }
+}
+
 function setupRevealObserver() {
   if (observer) {
     observer.disconnect();
@@ -576,6 +688,7 @@ function renderLocale() {
   renderContact(localeData);
   renderToolsPrint(localeData);
   renderPrintLayout(hiddenSectionIds);
+  schedulePrintPortraitPreload();
 
   const sectionIds = localeData.nav
     .map((item) => item.id)
@@ -694,8 +807,15 @@ function setupEvents() {
     const printAction = event.target.closest('[data-action="print"]');
     if (printAction) {
       event.preventDefault();
-      window.print();
+      ensurePrintPortraitIsReady().finally(() => {
+        window.print();
+      });
     }
+  });
+
+  window.addEventListener('beforeprint', () => {
+    hydratePrintPortraitSources();
+    void ensurePrintPortraitIsReady();
   });
 }
 

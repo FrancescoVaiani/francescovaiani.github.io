@@ -1,8 +1,10 @@
 import { runContentModelTests } from './content-model.test.js';
+import { runDevServerPathTests } from './dev-server-path.test.js';
 import { runSiteUtilsTests } from './site-utils.test.js';
 
 const suites = [
   { name: 'content-model', run: runContentModelTests },
+  { name: 'dev-server-path', run: runDevServerPathTests },
   { name: 'site-utils', run: runSiteUtilsTests },
 ];
 

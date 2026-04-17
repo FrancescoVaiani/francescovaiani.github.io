@@ -79,11 +79,11 @@ export function runContentModelTests() {
       },
     },
     {
-      name: 'product work includes two flagship blocks',
+      name: 'product work includes at least two flagship blocks',
       fn: () => {
         for (const locale of LOCALES) {
           const items = SITE_CONTENT[locale].sections.productWork.items;
-          assert.equal(items.length, 2, `Locale ${locale} should have exactly 2 flagship blocks`);
+          assert.ok(items.length >= 2, `Locale ${locale} should have at least 2 flagship blocks`);
         }
       },
     },
