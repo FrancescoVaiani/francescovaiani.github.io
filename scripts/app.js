@@ -252,49 +252,21 @@ function renderEducation(localeData) {
 
 function renderProductWork(localeData) {
   const data = localeData.sections.productWork;
+  const introMarkup = data.intro ? `<p class="section-note">${escapeHtml(data.intro)}</p>` : '';
   sectionProductWork.innerHTML = `
     <p class="eyebrow">${escapeHtml(data.eyebrow)}</p>
     <h2>${escapeHtml(data.title)}</h2>
-    <p class="section-note">${escapeHtml(data.intro)}</p>
+    ${introMarkup}
     <div class="cards">
       ${data.items
-        .map((item) => {
-          const references = Array.isArray(item.references) ? item.references : [];
-          const referencesMarkup = references.length
-            ? `
-              <div class="resource-links">
-                <p class="resource-label"><strong>${escapeHtml(localeData.labels.referencesLabel)}:</strong></p>
-                <ul class="bullet-list">
-                  ${references
-                    .map(
-                      (ref) => `
-                        <li>
-                          <a href="${escapeHtml(ref.url)}" target="_blank" rel="noreferrer noopener">${escapeHtml(ref.label)}</a>
-                        </li>
-                      `,
-                    )
-                    .join('')}
-                </ul>
-              </div>
-            `
-            : '';
-
-          return `
+        .map(
+          (item) => `
             <article class="card">
-              <span class="tag">${escapeHtml(item.tag)}</span>
               <h3>${escapeHtml(item.title)}</h3>
-              <p><strong>${escapeHtml(localeData.labels.problemLabel)}:</strong> ${escapeHtml(item.problem)}</p>
-              <p><strong>${escapeHtml(localeData.labels.usersLabel)}:</strong> ${escapeHtml(item.users)}</p>
-              <p><strong>${escapeHtml(localeData.labels.roleLabel)}:</strong> ${escapeHtml(item.role)}</p>
-              <ul class="bullet-list">
-                ${item.decisions.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-              </ul>
-              <p><strong>${escapeHtml(localeData.labels.impactLabel)}:</strong> ${escapeHtml(item.impact)}</p>
-              <p><strong>${escapeHtml(localeData.labels.whyMattersLabel)}:</strong> ${escapeHtml(item.futureFit)}</p>
-              ${referencesMarkup}
+              <p>${escapeHtml(item.detail)}</p>
             </article>
-          `;
-        })
+          `,
+        )
         .join('')}
     </div>
   `;

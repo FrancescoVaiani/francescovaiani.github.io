@@ -22,10 +22,10 @@ export const SITE_CONTENT = {
     nav: [
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profile' },
+      { id: 'product-work', label: 'Domain Expertise' },
       { id: 'skills', label: 'Hard Skills' },
       { id: 'experience', label: 'Experience' },
       { id: 'approach', label: 'How I Work' },
-      { id: 'product-work', label: 'Product Work' },
       { id: 'education', label: 'Education' },
       { id: 'languages', label: 'Languages' },
       { id: 'contact', label: 'Contact' },
@@ -115,67 +115,25 @@ export const SITE_CONTENT = {
         ],
       },
       productWork: {
-        eyebrow: 'Selected Product Work',
-        title: 'Flagship SaaS projects',
+        eyebrow: 'Domain Expertise',
+        title: 'Hardware-First PM with SaaS Experience',
         intro:
-          'Both projects below reflect my direct architecture and implementation ownership before my transition to product management roles.',
+          'I focus on product decisions where hardware strategy, device lifecycle requirements, and SaaS execution must stay aligned.',
         items: [
           {
-            tag: 'SaaS #1 - IoT',
-            title: 'UDOO Cloud',
-            problem:
-              'Connected hardware products need a reliable cloud layer for telemetry, orchestration, and lifecycle operations.',
-            users:
-              'Teams running IoT-enabled products and operations that need centralized cloud visibility and control.',
-            role:
-              'I was the main architect for the platform, including microservice backend design and frontend development.',
-            decisions: [
-              'I designed a microservice-based backend architecture.',
-              'I designed and implemented the frontend application surface.',
-              'I designed message-based communication on RabbitMQ.',
-              'I designed data structures on MongoDB for the cloud domain model.',
-            ],
-            impact:
-              'I delivered the core cloud foundation used to manage and operate connected UDOO workflows.',
-            futureFit:
-              'This demonstrates my ability to bridge product direction and hands-on system design in SaaS + hardware contexts.',
-            references: [
-              {
-                label: 'UDOO IoT documentation',
-                url: 'https://www.udoo.org/docs-iot/',
-              },
-            ],
+            title: 'Hardware-Software Product Strategy',
+            detail:
+              'I connect hardware constraints and software roadmap decisions, aligning R&D, Sales, and Marketing to improve inquiries, sold units, and market expansion.',
           },
           {
-            tag: 'SaaS #2 - Device Management',
-            title: 'Edgehog IoT (original implementation)',
-            problem:
-              'Device lifecycle platforms need reliable fleet operations, telemetry handling, updates, and cloud integration.',
-            users:
-              'Product and operations teams responsible for connected-device lifecycle management at scale.',
-            role:
-              'I was the main architect for the original Edgehog IoT implementation, with backend architecture and frontend ownership.',
-            decisions: [
-              'I designed a microservice backend and built the frontend layer.',
-              'I designed messaging on MQTT using Mosquitto.',
-              'I designed a hybrid persistence model: SQL for structured device data and MongoDB for telemetry.',
-              'I integrated the platform with AWS IoT Cloud.',
-              'The later Astarte-based rewrite is treated as a separate implementation; my contribution there focused on the edge agent.',
-            ],
-            impact:
-              'I established the original product architecture used for device management workflows and cloud integration.',
-            futureFit:
-              'This shows my system-level product thinking across backend architecture, data strategy, and cloud-device integration.',
-            references: [
-              {
-                label: 'Edgehog website',
-                url: 'https://edgehog.io/',
-              },
-              {
-                label: 'Edgehog Device Manager GitHub org (current overhaul context)',
-                url: 'https://github.com/edgehog-device-manager',
-              },
-            ],
+            title: 'Device Lifecycle Management',
+            detail:
+              'I prioritize capabilities across onboarding, monitoring, updates, and fleet operations by balancing user value, technical feasibility, and business impact.',
+          },
+          {
+            title: 'Industrial IoT SaaS Platforms',
+            detail:
+              'I bring previous hands-on SaaS experience in connected-product environments, translating technical complexity into clear product priorities.',
           },
         ],
       },
@@ -333,10 +291,10 @@ export const SITE_CONTENT = {
     nav: [
       { id: 'hero', label: 'Hero' },
       { id: 'profile', label: 'Profilo' },
+      { id: 'product-work', label: 'Expertise di Dominio' },
       { id: 'skills', label: 'Hard Skills' },
       { id: 'experience', label: 'Esperienza' },
       { id: 'approach', label: 'Come lavoro' },
-      { id: 'product-work', label: 'Progetti' },
       { id: 'education', label: 'Formazione' },
       { id: 'languages', label: 'Lingue' },
       { id: 'contact', label: 'Contatti' },
@@ -426,67 +384,25 @@ export const SITE_CONTENT = {
         ],
       },
       productWork: {
-        eyebrow: 'Progetti Prodotto Selezionati',
-        title: 'Progetti SaaS principali',
+        eyebrow: 'Expertise di Dominio',
+        title: 'Product Manager hardware-first con esperienza SaaS',
         intro:
-          'Entrambi i progetti riflettono la mia ownership diretta su architettura e implementazione prima della transizione verso ruoli product.',
+          'Mi focalizzo su decisioni di prodotto dove strategia hardware, requisiti di lifecycle dei device ed esecuzione SaaS devono restare allineate.',
         items: [
           {
-            tag: 'SaaS #1 - IoT',
-            title: 'UDOO Cloud',
-            problem:
-              'I prodotti hardware connessi richiedono un layer cloud affidabile per telemetria, orchestrazione e lifecycle operativo.',
-            users:
-              'Team che gestiscono prodotti IoT e operations con necessita di controllo e visibilita centralizzati.',
-            role:
-              'Sono stato main architect della piattaforma con design backend a microservizi e sviluppo frontend.',
-            decisions: [
-              'Ho progettato un architettura backend basata su microservizi.',
-              'Ho progettato e sviluppato il frontend applicativo.',
-              'Ho progettato il sistema di messaggistica su RabbitMQ.',
-              'Ho progettato il modello dati su MongoDB.',
-            ],
-            impact:
-              'Ho realizzato la base cloud per la gestione operativa dei flussi UDOO connessi.',
-            futureFit:
-              'Questo evidenzia la mia capacita di collegare direzione prodotto e system design operativo in contesti SaaS + hardware.',
-            references: [
-              {
-                label: 'Documentazione UDOO IoT',
-                url: 'https://www.udoo.org/docs-iot/',
-              },
-            ],
+            title: 'Strategia Prodotto Hardware-Software',
+            detail:
+              'Collego vincoli hardware e decisioni roadmap software, allineando R&D, Sales e Marketing per migliorare inquiry, unita vendute ed espansione di mercato.',
           },
           {
-            tag: 'SaaS #2 - Device Management',
-            title: 'Edgehog IoT (implementazione originale)',
-            problem:
-              'Le piattaforme di lifecycle device richiedono gestione affidabile di flotta, telemetria, aggiornamenti e integrazione cloud.',
-            users:
-              'Team prodotto e operations responsabili del ciclo di vita dei dispositivi connessi.',
-            role:
-              'Sono stato main architect dell implementazione Edgehog IoT originale, con ownership su backend e frontend.',
-            decisions: [
-              'Ho progettato backend a microservizi e sviluppato il frontend.',
-              'Ho progettato la messaggistica MQTT con Mosquitto.',
-              'Ho progettato una persistenza ibrida: SQL per dati strutturati device e MongoDB per telemetria.',
-              'Ho integrato la piattaforma con AWS IoT Cloud.',
-              'La successiva riscrittura Astarte-based e trattata come implementazione separata; in quella fase il mio contributo principale e stato sull edge agent.',
-            ],
-            impact:
-              'Ho definito la prima architettura prodotto per workflow di device management e integrazione cloud.',
-            futureFit:
-              'Questo dimostra il mio product thinking a livello sistema su backend, strategia dati e integrazione cloud-device.',
-            references: [
-              {
-                label: 'Sito Edgehog',
-                url: 'https://edgehog.io/',
-              },
-              {
-                label: 'GitHub org Edgehog Device Manager (contesto overhaul attuale)',
-                url: 'https://github.com/edgehog-device-manager',
-              },
-            ],
+            title: 'Gestione del Lifecycle dei Device',
+            detail:
+              'Prioritizzo capacita lungo onboarding, monitoraggio, aggiornamenti e fleet operations bilanciando valore utente, fattibilita tecnica e impatto business.',
+          },
+          {
+            title: 'Piattaforme SaaS per Industrial IoT',
+            detail:
+              'Porto esperienza SaaS maturata in contesti di prodotti connessi, trasformando complessita tecnica in priorita prodotto chiare.',
           },
         ],
       },
