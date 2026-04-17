@@ -20,4 +20,8 @@ node_modules/
 # Local agent/project docs not meant for publishing
 AGENTS.md
 docs/
-design-system/
+design-system/*
+!design-system/css/
+design-system/css/*
+!design-system/css/base.css
+!design-system/css/tokens.css
