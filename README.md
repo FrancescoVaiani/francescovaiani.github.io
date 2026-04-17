@@ -1,17 +1,5 @@
 # CV Personal Site
 
-Repository inizializzato per il progetto del sito personale/CV bilingue (EN/IT).
+This project is a bilingual (EN/IT) personal website and CV for Francesco Vaiani, built to appeal to recruiters for Product Manager roles.
 
-## Design System
-
-- Human-readable guide: `design-system/DESIGN_SYSTEM.md`
-- Visual preview: `design-system/preview.html`
-- AI-friendly tokens (DTCG JSON): `design-system/tokens/design-tokens.json`
-- CSS token export: `design-system/css/tokens.css`
-- Base styles + motion + print rules: `design-system/css/base.css`
-- Portrait asset: `assets/propic_scontornata.png`
-
-## Quick Start
-
-Apri `design-system/preview.html` in un browser per vedere il design system in forma visuale.
-La preview include toggle tema `Light / Dark / Auto`.
+It combines a modern, responsive web experience (desktop, tablet, mobile) with a one-page print/PDF CV layout, keeping the same narrative across profile, domain expertise, skills, experience, and contact sections.
