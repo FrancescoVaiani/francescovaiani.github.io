@@ -48,7 +48,7 @@ export const SITE_CONTENT = {
       ],
       ctaPrimary: 'Contact',
       ctaLinkedIn: 'LinkedIn',
-      ctaPrint: 'Print / PDF CV',
+      ctaPrint: 'Print CV',
     },
     sections: {
       profile: {
@@ -252,7 +252,7 @@ export const SITE_CONTENT = {
           },
           {
             label: 'Location',
-            value: 'Italy',
+            value: 'Arezzo, Italy',
             href: '',
           },
         ],
@@ -320,7 +320,7 @@ export const SITE_CONTENT = {
       ],
       ctaPrimary: 'Contatti',
       ctaLinkedIn: 'LinkedIn',
-      ctaPrint: 'Stampa / PDF CV',
+      ctaPrint: 'Stampa CV',
     },
     sections: {
       profile: {
@@ -524,7 +524,7 @@ export const SITE_CONTENT = {
           },
           {
             label: 'Localita',
-            value: 'Italia',
+            value: 'Arezzo, Italia',
             href: '',
           },
         ],
