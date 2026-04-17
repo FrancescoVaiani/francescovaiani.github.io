@@ -60,10 +60,14 @@ const langButtons = Array.from(document.querySelectorAll('[data-lang]'));
 const themeButtons = Array.from(document.querySelectorAll('[data-theme-set]'));
 const themeSwitch = document.getElementById('theme-switch');
 const languageSwitch = document.getElementById('language-switch');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+const mobileMenuLabel = mobileMenuToggle ? mobileMenuToggle.querySelector('.mobile-menu-label') : null;
 
 let observer = null;
 let activeLocale = resolveInitialLocale(localStorage.getItem(LOCALE_STORAGE_KEY), navigator.language);
 let activeTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
+const mobileMenuMedia = window.matchMedia('(max-width: 1024px)');
 
 if (!validateSiteContentModel()) {
   throw new Error('Invalid content model. Missing required sections.');
@@ -106,6 +110,25 @@ function setActiveNav(sectionId) {
 
 function resolveHiddenSectionIds(localeData) {
   return new Set(localeData.ui?.hiddenSectionIds || []);
+}
+
+function setMobileMenuState(nextOpen, labels = SITE_CONTENT[activeLocale]?.labels) {
+  const shouldOpen = Boolean(nextOpen && mobileMenuMedia.matches);
+  document.body.classList.toggle('mobile-menu-open', shouldOpen);
+
+  if (mobileMenuBackdrop) {
+    mobileMenuBackdrop.hidden = !shouldOpen;
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.setAttribute('aria-expanded', String(shouldOpen));
+    const ariaLabel = shouldOpen ? labels?.menuCloseLabel || 'Close menu' : labels?.menuOpenLabel || 'Open menu';
+    mobileMenuToggle.setAttribute('aria-label', ariaLabel);
+  }
+
+  if (mobileMenuLabel) {
+    mobileMenuLabel.textContent = labels?.menuText || 'Menu';
+  }
 }
 
 function applySectionVisibility(hiddenSectionIds) {
@@ -492,6 +515,7 @@ function renderLocale() {
   railSubtitle.textContent = localeData.rail.subtitle;
   languageSwitch.setAttribute('aria-label', localeData.labels.languageToggle);
   themeSwitch.setAttribute('aria-label', localeData.labels.themeToggle);
+  setMobileMenuState(document.body.classList.contains('mobile-menu-open'), localeData.labels);
 
   applySectionVisibility(hiddenSectionIds);
   renderNavigation(localeData, hiddenSectionIds);
@@ -546,13 +570,52 @@ function setupEvents() {
       activeLocale = nextLocale;
       localStorage.setItem(LOCALE_STORAGE_KEY, activeLocale);
       renderLocale();
+      setMobileMenuState(false, SITE_CONTENT[nextLocale]?.labels);
     });
   }
 
   for (const themeButton of themeButtons) {
     themeButton.addEventListener('click', () => {
       setTheme(themeButton.dataset.themeSet || 'auto');
+      setMobileMenuState(false);
     });
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = document.body.classList.contains('mobile-menu-open');
+      setMobileMenuState(!isOpen);
+    });
+  }
+
+  if (mobileMenuBackdrop) {
+    mobileMenuBackdrop.addEventListener('click', () => {
+      setMobileMenuState(false);
+    });
+  }
+
+  navList.addEventListener('click', (event) => {
+    if (event.target.closest('.nav-item')) {
+      setMobileMenuState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
+      setMobileMenuState(false);
+    }
+  });
+
+  const closeMenuOnViewportChange = () => {
+    if (!mobileMenuMedia.matches) {
+      setMobileMenuState(false);
+    }
+  };
+
+  if (typeof mobileMenuMedia.addEventListener === 'function') {
+    mobileMenuMedia.addEventListener('change', closeMenuOnViewportChange);
+  } else if (typeof mobileMenuMedia.addListener === 'function') {
+    mobileMenuMedia.addListener(closeMenuOnViewportChange);
   }
 
   document.addEventListener('click', (event) => {
@@ -568,6 +631,7 @@ function bootstrap() {
   setupEvents();
   setTheme(activeTheme);
   renderLocale();
+  setMobileMenuState(false);
 }
 
 bootstrap();

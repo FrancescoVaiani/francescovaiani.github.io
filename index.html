@@ -20,6 +20,19 @@
     <link rel="stylesheet" href="./styles/site.css" />
   </head>
   <body>
+    <button
+      id="mobile-menu-toggle"
+      class="mobile-menu-toggle chrome-only"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="mobile-menu-panel"
+      aria-expanded="false"
+    >
+      <span class="mobile-menu-icon" aria-hidden="true"></span>
+      <span class="mobile-menu-label">Menu</span>
+    </button>
+    <div id="mobile-menu-backdrop" class="mobile-menu-backdrop chrome-only" hidden></div>
+
     <section id="hero" class="hero-impact is-visible" data-reveal>
       <div class="hero-inner">
         <div class="hero-copy">
@@ -64,7 +77,7 @@
 
     <div class="container">
       <div class="shell">
-        <aside class="rail chrome-only">
+        <aside id="mobile-menu-panel" class="rail chrome-only">
           <h1 id="rail-title"></h1>
           <p id="rail-subtitle"></p>
 

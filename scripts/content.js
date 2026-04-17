@@ -278,6 +278,9 @@ export const SITE_CONTENT = {
       degreeLabel: 'Degree',
       aboutLabel: 'About',
       toolsAria: 'Software logos carousel',
+      menuOpenLabel: 'Open menu',
+      menuCloseLabel: 'Close menu',
+      menuText: 'Menu',
     },
   },
   it: {
@@ -547,6 +550,9 @@ export const SITE_CONTENT = {
       degreeLabel: 'Titolo',
       aboutLabel: 'About',
       toolsAria: 'Carosello software',
+      menuOpenLabel: 'Apri menu',
+      menuCloseLabel: 'Chiudi menu',
+      menuText: 'Menu',
     },
   },
 };
