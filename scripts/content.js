@@ -44,7 +44,7 @@ export const SITE_CONTENT = {
       kpis: [
         'Product Manager at SECO (since April 2023)',
         'Senior Software Developer at SECO Mind (June 2021 - April 2023)',
-        'Software Developer at AIDILAB (May 2016 - May 1, 2021)',
+        'Software Developer at AIDILAB (May 2016 - May 2021)',
       ],
       ctaPrimary: 'Contact',
       ctaLinkedIn: 'LinkedIn',
@@ -91,7 +91,7 @@ export const SITE_CONTENT = {
             title: 'Software Developer',
             company: 'AIDILAB',
             city: 'Siena',
-            date: 'May 2016 - May 1, 2021',
+            date: 'May 2016 - May 2021',
             scope:
               'I covered engineering responsibilities until the AIDILAB merge with Hopenly and Ispirata.',
             contributions: [
@@ -243,7 +243,7 @@ export const SITE_CONTENT = {
           {
             label: 'Email',
             type: 'obfuscated-email',
-            maskedValue: 'francesco [at] gmail [dot] com',
+            maskedValue: 'francesco.vaiani [at] gmail [dot] com',
             emailCodes: [
               102,
               114,
@@ -344,7 +344,7 @@ export const SITE_CONTENT = {
       kpis: [
         'Product Manager in SECO (da aprile 2023)',
         'Senior Software Developer in SECO Mind (giugno 2021 - aprile 2023)',
-        'Software Developer in AIDILAB (maggio 2016 - 1 maggio 2021)',
+        'Software Developer in AIDILAB (maggio 2016 - maggio 2021)',
       ],
       ctaPrimary: 'Contatti',
       ctaLinkedIn: 'LinkedIn',
@@ -391,7 +391,7 @@ export const SITE_CONTENT = {
             title: 'Software Developer',
             company: 'AIDILAB',
             city: 'Siena',
-            date: 'maggio 2016 - 1 maggio 2021',
+            date: 'maggio 2016 - maggio 2021',
             scope:
               'Ho gestito responsabilita ingegneristiche fino alla merge di AIDILAB con Hopenly e Ispirata.',
             contributions: [
@@ -543,7 +543,7 @@ export const SITE_CONTENT = {
           {
             label: 'Email',
             type: 'obfuscated-email',
-            maskedValue: 'francesco [at] gmail [dot] com',
+            maskedValue: 'francesco.vaiani [at] gmail [dot] com',
             emailCodes: [
               102,
               114,

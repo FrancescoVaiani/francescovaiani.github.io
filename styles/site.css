@@ -6,6 +6,10 @@
   display: none;
 }
 
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -26,6 +30,8 @@
 .mobile-menu-toggle {
   align-items: center;
   gap: 0.45rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   border: 1px solid rgba(173, 199, 230, 0.44);
   background: rgba(5, 17, 35, 0.72);
   color: var(--color-hero-title);
@@ -80,6 +86,11 @@ body.mobile-menu-open .mobile-menu-icon::before {
 
 body.mobile-menu-open .mobile-menu-icon::after {
   transform: translateY(-5px) rotate(-45deg);
+}
+
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
 }
 
 .hero-copy {
@@ -553,6 +564,22 @@ body.mobile-menu-open .mobile-menu-icon::after {
     pointer-events: auto;
   }
 
+  .rail .nav-item {
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .rail .lang-switch button,
+  .rail .theme-btn {
+    min-height: 2.75rem;
+  }
+
+  .rail .lang-switch button {
+    min-width: 2.75rem;
+    padding-inline: 0.8rem;
+  }
+
   .hero-impact {
     min-height: 100dvh;
   }
@@ -792,6 +819,7 @@ body.mobile-menu-open .mobile-menu-icon::after {
   }
 
   .cta-row .btn {
+    min-height: 2.75rem;
     padding: 0.6rem 0.82rem;
     font-size: 0.93rem;
   }
@@ -870,6 +898,13 @@ body.mobile-menu-open .mobile-menu-icon::after {
   .tool-logo.is-clone,
   .tool-logo[data-copy]:not([data-copy='0']) {
     display: none;
+  }
+
+  .btn:hover,
+  .card:hover,
+  .timeline-item:hover,
+  .approach-step:hover {
+    transform: none !important;
   }
 }
 

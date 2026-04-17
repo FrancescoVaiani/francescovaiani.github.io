@@ -109,7 +109,11 @@ function setActiveNav(sectionId) {
     const target = href ? href.replace('#', '') : '';
     const isActive = target === sectionId;
     navItem.classList.toggle('active', isActive);
-    navItem.setAttribute('aria-current', isActive ? 'true' : 'false');
+    if (isActive) {
+      navItem.setAttribute('aria-current', 'location');
+    } else {
+      navItem.removeAttribute('aria-current');
+    }
   }
 }
 

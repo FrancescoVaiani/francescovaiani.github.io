@@ -19,6 +19,8 @@ node_modules/
 
 # Local agent/project docs not meant for publishing
 AGENTS.md
+.agents/
+.impeccable.md
 docs/
 design-system/*
 !design-system/css/
