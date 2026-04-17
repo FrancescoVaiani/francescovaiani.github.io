@@ -16,3 +16,8 @@ node_modules/
 
 # Logs
 *.log
+
+# Local agent/project docs not meant for publishing
+AGENTS.md
+docs/
+design-system/
