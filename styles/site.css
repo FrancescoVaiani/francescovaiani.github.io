@@ -536,6 +536,105 @@ body.mobile-menu-open .mobile-menu-icon::after {
   }
 }
 
+@media (max-width: 1024px) and (min-width: 721px) {
+  .hero-impact {
+    min-height: 100dvh;
+    overflow: clip;
+  }
+
+  .hero-inner {
+    width: calc(100% - 1.4rem);
+    min-height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 3.9rem;
+  }
+
+  .hero-visual {
+    order: 1;
+    min-height: 48svh;
+    place-items: end center;
+    transform: translateX(16%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .hero-copy {
+    order: 2;
+    align-self: start;
+    position: relative;
+    z-index: 4;
+    margin-top: -14rem;
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+
+  .hero-copy h1 {
+    max-width: 11.5ch !important;
+    font-size: clamp(2.2rem, 6.2vw, 3.7rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .hero-copy p {
+    max-width: 38ch;
+    font-size: 1rem !important;
+    margin-top: var(--space-3) !important;
+  }
+
+  .hero-kpis {
+    margin-top: var(--space-3) !important;
+    gap: 0.5rem;
+  }
+
+  .hero-kpis span {
+    font-size: 0.72rem !important;
+    padding: 0.28rem 0.58rem !important;
+  }
+
+  .hero-kpis span:nth-child(3) {
+    display: none;
+  }
+
+  .cta-row {
+    margin-top: var(--space-4) !important;
+    gap: 0.55rem !important;
+  }
+
+  .hero-geometry {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    bottom: 0.8rem;
+    width: min(76vw, 470px);
+    aspect-ratio: 0.86 / 1;
+    transform: none;
+    z-index: 0;
+  }
+
+  .hero-geometry::before {
+    inset: 4%;
+  }
+
+  .hero-geometry::after {
+    inset: 12% 16% 12% 11%;
+  }
+
+  .hero-portrait {
+    width: min(78vw, 470px);
+    max-height: 58svh;
+    position: relative;
+    z-index: 2;
+    transform: translate(0, 0) !important;
+  }
+}
+
 @media (max-width: 720px) {
   .hero-impact {
     min-height: 100dvh;
