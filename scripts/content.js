@@ -33,11 +33,12 @@ export const SITE_CONTENT = {
     ],
     rail: {
       title: 'Francesco Vaiani',
-      subtitle: 'Technical Product Manager | SaaS, IoT and Device Management',
+      subtitle:
+        'Technical Product Manager | Hardware Strategy, SaaS Execution, and Cross-Functional Delivery',
     },
     hero: {
       eyebrow: 'Francesco Vaiani',
-      title: 'Technical Product Manager for SaaS, IoT, and Device Management',
+      title: 'Technical Product Manager for Hardware Platforms, IoT, and Device Lifecycle',
       summary:
         'From code to product strategy: I connect business goals and technical execution to deliver clear roadmaps, faster alignment, and reliable outcomes.',
       kpis: [
@@ -343,11 +344,12 @@ export const SITE_CONTENT = {
     ],
     rail: {
       title: 'Francesco Vaiani',
-      subtitle: 'Technical Product Manager | SaaS, IoT e Device Management',
+      subtitle:
+        'Technical Product Manager | Strategia Hardware, Esecuzione SaaS e Delivery Cross-Funzionale',
     },
     hero: {
       eyebrow: 'Francesco Vaiani',
-      title: 'Technical Product Manager per SaaS, IoT e Device Management',
+      title: 'Technical Product Manager per Piattaforme Hardware, IoT e Device Lifecycle',
       summary:
         'Dal codice alla strategia di prodotto: collego obiettivi di business ed esecuzione tecnica per ottenere roadmap chiare, allineamento rapido e risultati affidabili.',
       kpis: [
