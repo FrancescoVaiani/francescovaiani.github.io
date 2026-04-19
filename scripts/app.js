@@ -520,6 +520,40 @@ function renderPrintLayout(hiddenSectionIds) {
     .join('');
 }
 
+function clearPrintArtifacts() {
+  sectionPrintIntro.innerHTML = '';
+  sectionToolsPrint.innerHTML = '';
+
+  if (printLeftCol) {
+    printLeftCol.innerHTML = '';
+  }
+  if (printRightCol) {
+    printRightCol.innerHTML = '';
+  }
+
+  printPortraitHydrated = false;
+  printPortraitLoadPromise = null;
+}
+
+function renderPrintArtifacts(localeData, hiddenSectionIds) {
+  renderPrintIntro(localeData);
+  renderToolsPrint(localeData);
+  renderPrintLayout(hiddenSectionIds);
+  schedulePrintPortraitPreload();
+}
+
+function preparePrintForActiveLocale() {
+  const localeData = SITE_CONTENT[activeLocale];
+  if (!localeData) {
+    return Promise.resolve();
+  }
+
+  const hiddenSectionIds = resolveHiddenSectionIds(localeData);
+  renderPrintArtifacts(localeData, hiddenSectionIds);
+  hydratePrintPortraitSources();
+  return ensurePrintPortraitIsReady();
+}
+
 function hydratePrintPortraitSources() {
   const portraits = Array.from(document.querySelectorAll('[data-print-portrait]'));
   const hydratedPortraits = [];
@@ -682,7 +716,6 @@ function renderLocale() {
   renderNavigation(localeData, hiddenSectionIds);
   renderHero(localeData);
   renderToolsStrip(localeData);
-  renderPrintIntro(localeData);
   renderProfile(localeData);
   renderExperience(localeData);
   renderEducation(localeData);
@@ -696,9 +729,7 @@ function renderLocale() {
   renderSkills(localeData);
   renderLanguages(localeData);
   renderContact(localeData);
-  renderToolsPrint(localeData);
-  renderPrintLayout(hiddenSectionIds);
-  schedulePrintPortraitPreload();
+  clearPrintArtifacts();
 
   const sectionIds = localeData.nav
     .map((item) => item.id)
@@ -817,15 +848,18 @@ function setupEvents() {
     const printAction = event.target.closest('[data-action="print"]');
     if (printAction) {
       event.preventDefault();
-      ensurePrintPortraitIsReady().finally(() => {
+      preparePrintForActiveLocale().finally(() => {
         window.print();
       });
     }
   });
 
   window.addEventListener('beforeprint', () => {
-    hydratePrintPortraitSources();
-    void ensurePrintPortraitIsReady();
+    void preparePrintForActiveLocale();
+  });
+
+  window.addEventListener('afterprint', () => {
+    clearPrintArtifacts();
   });
 }
 

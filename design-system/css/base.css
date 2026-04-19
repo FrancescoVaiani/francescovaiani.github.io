@@ -72,7 +72,7 @@ a:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
-.rail h1 {
+.rail-title {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.3rem;

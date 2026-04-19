@@ -280,38 +280,6 @@ function renderToolsPrint(localeData) {
   `;
 }
 
-function renderPrintIntro(localeData, assetBase) {
-  const aboutText = localeData.hero.summary || localeData.sections.profile.paragraphs[0] || '';
-  return `
-    <div class="print-identity-head">
-      <h2>${escapeHtml(localeData.hero.eyebrow)}</h2>
-      <p>${escapeHtml(localeData.hero.title)}</p>
-    </div>
-    <div class="print-about">
-      <h3>${escapeHtml(localeData.labels.aboutLabel)}</h3>
-      <p>${escapeHtml(aboutText)}</p>
-    </div>
-    <div class="print-photo-wrap">
-      <img
-        data-print-portrait
-        data-src="${escapeHtml(`${assetBase}assets/propic_scontornata_portrait.png`)}"
-        alt="Francesco Vaiani portrait"
-        width="600"
-        height="600"
-        decoding="async"
-      />
-    </div>
-  `;
-}
-
-function buildPrintPanelMarkup(sourceHtml, sourceId) {
-  return `
-    <section class="panel print-panel print-source-${sourceId}">
-      ${sourceHtml}
-    </section>
-  `;
-}
-
 function buildStructuredData(localeData, pageUrl) {
   const personId = `${SITE_URL}/#person`;
   const siteId = `${SITE_URL}/#website`;
@@ -437,34 +405,6 @@ function buildPage(locale) {
   const mediaMarkup = renderMedia(localeData);
   const languagesMarkup = renderLanguages(localeData);
   const contactMarkup = renderContact(localeData);
-  const toolsPrintMarkup = renderToolsPrint(localeData);
-  const printIntroMarkup = renderPrintIntro(localeData, assetBase);
-
-  const sectionHtmlById = {
-    'print-intro': printIntroMarkup,
-    profile: profileMarkup,
-    experience: experienceMarkup,
-    education: educationMarkup,
-    'product-work': productWorkMarkup,
-    approach: approachMarkup,
-    media: mediaMarkup,
-    skills: skillsMarkup,
-    languages: languagesMarkup,
-    contact: contactMarkup,
-    'tools-print': toolsPrintMarkup,
-  };
-
-  const shouldIncludeInPrint = (id) => id === 'print-intro' || id === 'tools-print' || !hiddenSectionIds.has(id);
-  const leftOrder = ['print-intro', 'contact', 'skills', 'languages'];
-  const rightOrder = ['experience', 'education', 'approach', 'product-work', 'tools-print'];
-  const printLeftMarkup = leftOrder
-    .filter((id) => shouldIncludeInPrint(id))
-    .map((id) => buildPrintPanelMarkup(sectionHtmlById[id], id))
-    .join('');
-  const printRightMarkup = rightOrder
-    .filter((id) => shouldIncludeInPrint(id))
-    .map((id) => buildPrintPanelMarkup(sectionHtmlById[id], id))
-    .join('');
 
   const navMarkup = localeData.nav
     .filter((item) => !hiddenSectionIds.has(item.id))
@@ -641,7 +581,7 @@ function buildPage(locale) {
     <div class="container">
       <div class="shell">
         <aside id="mobile-menu-panel" class="rail chrome-only">
-          <h1 id="rail-title">${escapeHtml(localeData.rail.title)}</h1>
+          <div id="rail-title" class="rail-title">${escapeHtml(localeData.rail.title)}</div>
           <p id="rail-subtitle">${escapeHtml(localeData.rail.subtitle)}</p>
 
           <nav class="nav-list" id="nav-list" aria-label="Section navigation">${navMarkup}</nav>
@@ -669,7 +609,7 @@ function buildPage(locale) {
         </aside>
 
         <main class="content" id="content-root">
-          <section id="print-intro" class="panel print-only" aria-hidden="true">${printIntroMarkup}</section>
+          <section id="print-intro" class="panel print-only" aria-hidden="true"></section>
           ${sectionMarkup('profile', profileMarkup)}
           ${sectionMarkup('product-work', productWorkMarkup)}
           ${sectionMarkup('skills', skillsMarkup)}
@@ -679,11 +619,11 @@ function buildPage(locale) {
           ${sectionMarkup('media', mediaMarkup)}
           ${sectionMarkup('languages', languagesMarkup)}
           ${sectionMarkup('contact', contactMarkup)}
-          <section id="tools-print" class="panel print-only" data-reveal aria-hidden="false" data-section-key="tools">${toolsPrintMarkup}</section>
+          <section id="tools-print" class="panel print-only" aria-hidden="true"></section>
 
           <div id="print-layout" class="print-only" aria-hidden="true">
-            <div id="print-left-col">${printLeftMarkup}</div>
-            <div id="print-right-col">${printRightMarkup}</div>
+            <div id="print-left-col"></div>
+            <div id="print-right-col"></div>
           </div>
         </main>
       </div>
