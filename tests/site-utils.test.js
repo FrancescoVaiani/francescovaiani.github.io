@@ -41,6 +41,13 @@ export function runSiteUtilsTests() {
       },
     },
     {
+      name: 'resolveInitialLocale honors default locale before browser language',
+      fn: () => {
+        assert.equal(resolveInitialLocale(null, 'en-US', 'it'), 'it');
+        assert.equal(resolveInitialLocale(undefined, 'it-IT', 'en'), 'en');
+      },
+    },
+    {
       name: 'locale content has required sections',
       fn: () => {
         assert.equal(localeHasRequiredSections(SITE_CONTENT.en), true);

@@ -13,9 +13,13 @@ export function normalizeTheme(theme) {
   return THEMES.includes(theme) ? theme : 'auto';
 }
 
-export function resolveInitialLocale(savedLocale, browserLanguage = 'en') {
+export function resolveInitialLocale(savedLocale, browserLanguage = 'en', defaultLocale = null) {
   if (LOCALES.includes(savedLocale)) {
     return savedLocale;
+  }
+
+  if (LOCALES.includes(defaultLocale)) {
+    return defaultLocale;
   }
 
   const lower = String(browserLanguage).toLowerCase();

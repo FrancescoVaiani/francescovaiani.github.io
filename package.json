@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/dev-server.js",
+    "prerender": "node scripts/prerender.js",
     "test": "node tests/run-tests.js"
   }
 }

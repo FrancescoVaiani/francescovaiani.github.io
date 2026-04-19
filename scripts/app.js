@@ -65,11 +65,17 @@ const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
 const mobileMenuLabel = mobileMenuToggle ? mobileMenuToggle.querySelector('.mobile-menu-label') : null;
 
 let observer = null;
-let activeLocale = resolveInitialLocale(localStorage.getItem(LOCALE_STORAGE_KEY), navigator.language);
+const defaultLocale = root.dataset.defaultLocale || root.lang || 'en';
+const assetBase = root.dataset.assetBase || './';
+let activeLocale = resolveInitialLocale(
+  localStorage.getItem(LOCALE_STORAGE_KEY),
+  navigator.language,
+  defaultLocale,
+);
 let activeTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
 const mobileMenuMedia = window.matchMedia('(max-width: 1024px)');
 const MAILTO_PREFIX_CODES = [109, 97, 105, 108, 116, 111, 58];
-const PRINT_PORTRAIT_SRC = './assets/propic_scontornata_portrait.png';
+const PRINT_PORTRAIT_SRC = `${assetBase}assets/propic_scontornata_portrait.png`;
 const PRINT_PORTRAIT_LOAD_TIMEOUT_MS = 2500;
 let printPortraitHydrated = false;
 let printPortraitLoadPromise = null;

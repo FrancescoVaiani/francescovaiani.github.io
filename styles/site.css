@@ -6,6 +6,17 @@
   display: none;
 }
 
+@supports (content-visibility: auto) {
+  .content > section.panel[data-reveal] {
+    content-visibility: auto;
+    contain-intrinsic-size: 680px;
+  }
+
+  .content > section.panel[data-reveal]#profile {
+    content-visibility: visible;
+  }
+}
+
 body.mobile-menu-open {
   overflow: hidden;
 }
